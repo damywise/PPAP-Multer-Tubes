@@ -1058,10 +1058,16 @@ MonoBehaviour:
     type: 3}
   enemyPrefab: {fileID: 9135016357388401897, guid: 759b1532d50b5434087e2cf752bf75ec,
     type: 3}
-  walkableMaterial: {fileID: 2100000, guid: 41a9382eaca824e51b55ff2d0c790bc8, type: 2}
-  unwalkableMaterial: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  selectedMaterial: {fileID: 2100000, guid: 45dc9ae5f6b7c4921aa61067c66c45b0, type: 2}
-  hoveredMaterial: {fileID: 0}
+  walkableTileMaterial: {fileID: 2100000, guid: 41a9382eaca824e51b55ff2d0c790bc8,
+    type: 2}
+  unwalkableTileMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000,
+    type: 0}
+  selectedTileMaterial: {fileID: 2100000, guid: 45dc9ae5f6b7c4921aa61067c66c45b0,
+    type: 2}
+  hoveredTileMaterial: {fileID: 2100000, guid: 4b2245a46564d4ca493d5ed5b634767d, type: 2}
+  attackableTileMaterial: {fileID: 2100000, guid: 3cae58a81667a4a51bc6cac7cd8634be,
+    type: 2}
+  enemyTileMaterial: {fileID: 2100000, guid: 69f5c342815e249cab106bb967db79f5, type: 2}
 --- !u!4 &1491449453
 Transform:
   m_ObjectHideFlags: 0

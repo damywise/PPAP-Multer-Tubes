@@ -6,4 +6,5 @@ public struct GridTile
 {
     public Vector3 position;
     public bool isWalkable;
+    public bool isAttackable;
 }

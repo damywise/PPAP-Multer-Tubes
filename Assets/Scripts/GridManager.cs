@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ActionType {
+public enum ActionType
+{
     Move,
     Attack
 }
@@ -20,13 +21,15 @@ public class GridManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     private GameObject selectedCharacter;
-    // attack button 
+    private ActionType actionType = ActionType.Move;
 
     // material
-    public Material walkableMaterial;
-    public Material unwalkableMaterial;
-    public Material selectedMaterial;
-    public Material hoveredMaterial;
+    public Material walkableTileMaterial;
+    public Material unwalkableTileMaterial;
+    public Material selectedTileMaterial;
+    public Material hoveredTileMaterial;
+    public Material attackableTileMaterial;
+    public Material enemyTileMaterial;
 
     private float scale;
 
@@ -109,13 +112,13 @@ public class GridManager : MonoBehaviour
         }
 
         // change grid tile on character to selected
-        tiles[x, y].GetComponent<MeshRenderer>().material = selectedMaterial;
+        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
 
         // change grid tile on around character to walkable if there is no character or obstacle
         selectedCharacter = characters[x, y];
-        int[,] directions = null;
+        int[,] moveDirections = null;
         if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Warrior)
-            directions = new int[,]
+            moveDirections = new int[,]
             {
                 { 1, 0 },
                 { 1, 1 },
@@ -131,13 +134,42 @@ public class GridManager : MonoBehaviour
                 { 0, -2 }
             };
         else if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Gunner)
-            directions = new int[,]
+            moveDirections = new int[,]
             {
                 { 1, 0 },
                 { -1, 0 },
                 { 0, 1 },
                 { 0, -1 }
             };
+        // attack directions
+        int[,] attackDirections = null;
+        if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Warrior)
+            attackDirections = new int[,]
+            {
+                { 1, 0 },
+                { -1, 0 },
+                { 0, 1 },
+                { 0, -1 }
+            };
+        else if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Gunner)
+            attackDirections = new int[,]
+            {
+                { 1, 0 },
+                { 1, 1 },
+                { 1, -1 },
+                { 2, 0 },
+                { -1, 0 },
+                { -1, 1 },
+                { -1, -1 },
+                { -2, 0 },
+                { 0, 1 },
+                { 0, 2 },
+                { 0, -1 },
+                { 0, -2 }
+            };
+
+        int[,] directions = actionType == ActionType.Move ? moveDirections : attackDirections;
+
         for (int i = 0; i < directions.GetLength(0); i++)
         {
             int newX = x + directions[i, 0];
@@ -150,9 +182,15 @@ public class GridManager : MonoBehaviour
             if (obstacles[newX, newY] != null)
                 continue;
             if (enemies[newX, newY] != null)
+            {
+                if (actionType == ActionType.Attack)
+                    tiles[newX, newY].GetComponent<MeshRenderer>().material = enemyTileMaterial;
                 continue;
-            tiles[newX, newY].GetComponent<MeshRenderer>().material = walkableMaterial;
-            grid[newX, newY].isWalkable = true;
+            }
+            tiles[newX, newY].GetComponent<MeshRenderer>().material =
+                actionType == ActionType.Move ? walkableTileMaterial : attackableTileMaterial;
+            grid[newX, newY].isWalkable = actionType == ActionType.Move;
+            grid[newX, newY].isAttackable = actionType == ActionType.Attack;
         }
         // disable character collider isTrigger and
         // TODO: make selected character half transparent
@@ -166,6 +204,7 @@ public class GridManager : MonoBehaviour
     public void SelectTile(int x, int y)
     {
         bool isWalkable = grid[x, y].isWalkable;
+        bool isAttackable = grid[x, y].isAttackable;
 
         // move character transform to position of tile
         if (selectedCharacter != null && isWalkable)
@@ -203,6 +242,19 @@ public class GridManager : MonoBehaviour
         }
 
         ClearTiles();
+    }
+
+    public void HandleChangeAction(ActionType _actionType)
+    {
+        actionType = _actionType;
+        if (selectedCharacter != null)
+        {
+            // Reselect character. The function handles the rest/
+            SelectCharacter(
+                selectedCharacter.GetComponent<Character>().x,
+                selectedCharacter.GetComponent<Character>().y
+            );
+        }
     }
 
     private void MakeCharacterTransparent(GameObject character)
@@ -263,7 +315,7 @@ public class GridManager : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableMaterial;
+                tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableTileMaterial;
                 grid[i, j].isWalkable = false;
             }
         }

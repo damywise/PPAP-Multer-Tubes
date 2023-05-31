@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ActionType {
+    Move,
+    Attack
+}
+
 public class GridManager : MonoBehaviour
 {
     public int width;
@@ -15,6 +20,7 @@ public class GridManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     private GameObject selectedCharacter;
+    // attack button 
 
     // material
     public Material walkableMaterial;

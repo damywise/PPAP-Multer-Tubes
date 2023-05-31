@@ -9,9 +9,12 @@ public class GridManager : MonoBehaviour
     public GridTile[,] grid;
     public GameObject[,] tiles;
     public GameObject[,] characters;
+    public GameObject[,] enemies;
+    public GameObject[,] obstacles;
     public GameObject tilePrefab;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    private GameObject selectedCharacter;
 
     // material
     public Material walkableMaterial;
@@ -31,6 +34,7 @@ public class GridManager : MonoBehaviour
         CreateGrid();
         tiles = new GameObject[width, height];
         characters = new GameObject[width, height];
+        enemies = new GameObject[width, height];
         // spawn tilePrefab from grid
         for (int x = 0; x < width; x++)
         {
@@ -51,10 +55,13 @@ public class GridManager : MonoBehaviour
                 }
 
                 tiles[x, y] = Instantiate(tilePrefab, grid[x, y].position, Quaternion.identity);
+                // initialize script attached to tile
+                tiles[x, y].GetComponent<Tile>().x = x;
+                tiles[x, y].GetComponent<Tile>().y = y;
 
                 // instantiate enemy if on last row
                 if (x == width - 1)
-                    tiles[x, y] = Instantiate(
+                    enemies[x, y] = Instantiate(
                         enemyPrefab,
                         new Vector3(x * scale, enemyPrefab.transform.position.y, y * scale),
                         Quaternion.identity
@@ -72,7 +79,7 @@ public class GridManager : MonoBehaviour
             {
                 grid[x, y] = new GridTile();
                 grid[x, y].position = new Vector3(x * scale, 0, y * scale);
-                grid[x, y].isWalkable = true;
+                grid[x, y].isWalkable = false;
             }
         }
     }
@@ -80,18 +87,56 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update() { }
 
-    public void Select(int x, int y)
+    // select character
+    public void SelectCharacter(int x, int y)
     {
         ClearTiles();
 
         // change grid tile on character to selected
         tiles[x, y].GetComponent<MeshRenderer>().material = selectedMaterial;
 
-        // change grid tile on around character to walkable if there is no character and isWalkable is true
-        if (grid[x + 1, y].isWalkable)
+        // change grid tile on around character to walkable if there is no character or obstacle
+        selectedCharacter = characters[x, y];
+        int newX = x + 1;
+        int newY = y;
+        if (enemies[newX, newY] == null && characters[newX, newY] == null);
         {
-            tiles[x + 1, y].GetComponent<MeshRenderer>().material = walkableMaterial;
+            tiles[newX, newY].GetComponent<MeshRenderer>().material = walkableMaterial;
+            grid[newX, newY].isWalkable = true;
         }
+    }
+
+    // select tile on grid
+    public void SelectTile(int x, int y)
+    {
+        bool isWalkable = grid[x, y].isWalkable;
+
+        Debug.Log("material is walkable by character :" + isWalkable);
+        Debug.Log(selectedCharacter.transform.position);
+        // move character transform to position of tile
+        if (selectedCharacter != null)
+        {
+            // move character
+            // TODO: animate character move
+            selectedCharacter.transform.position = new Vector3(
+                x * scale,
+                selectedCharacter.transform.position.y,
+                y * scale
+            );
+            int oldX = selectedCharacter.GetComponent<Character>().x;
+            int oldY = selectedCharacter.GetComponent<Character>().y;
+            characters[oldX, oldY].GetComponent<Character>().x = x;
+            characters[oldX, oldY].GetComponent<Character>().y = y;
+            characters[x, y] = characters[oldX, oldY];
+            // remove characters at oldX, oldY
+            characters[oldX, oldY] = null;
+        }
+        else
+        {
+            //TODO: attack enemy
+        }
+
+        ClearTiles();
     }
 
     // change all grid tile to be unwalkableMaterial
@@ -102,6 +147,7 @@ public class GridManager : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableMaterial;
+                grid[i, j].isWalkable = false;
             }
         }
     }

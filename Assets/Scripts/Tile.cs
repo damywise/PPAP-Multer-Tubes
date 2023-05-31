@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-
     public int x;
     public int y;
     private GridManager gridManager;
@@ -15,14 +14,11 @@ public class Tile : MonoBehaviour
         gridManager = FindObjectOfType<GridManager>();
     }
 
-
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
-    private void OnMouseDown() {
+    private void OnMouseDown()
+    {
         gridManager.SelectTile(x, y);
     }
 }

@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterType
+{
+    Warrior,
+    Gunner
+}
+
 public class Character : MonoBehaviour
 {
-
     public int x;
     public int y;
     public int health = 100;
     public int maxHealth = 100;
     public int damage = 10;
-    public int attackRange = 1;
-    public int moveRange = 1;
+
+    public CharacterType characterType;
 
     private GridManager gridManager;
 
@@ -22,20 +27,14 @@ public class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
-    private void OnMouseDown() {        
+    private void OnMouseDown()
+    {
         gridManager.SelectCharacter(x, y);
     }
 
-    private void OnMouseEnter() {
-        
-    }
+    private void OnMouseEnter() { }
 
-    private void OnMouseExit() {
-        
-    }
+    private void OnMouseExit() { }
 }

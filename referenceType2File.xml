@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>10187248157864f319e9b6424f0811de</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2022-12-14T10:37:41+07:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.AssetCollector</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2ee4578de802b4f9f913e1a70ee2ece9</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T10:37:41+07:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.AssetReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f7597e2e819114acfbbb7686cc5c6410</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T10:37:41+07:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.ClassReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>96f628f39f0874117bdd9e32c9dabe5c</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/CollectionData.cs</fileName>
+    <timeStamp>2022-12-14T10:37:41+07:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.CollectionData</string>
+      <string>UnitySweeper.TypeDate</string>
+      <string>UnitySweeper.IReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ac9dca6091a1e474a9e4cd942a0a1aeb</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2022-12-14T10:37:41+07:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.FindUnusedAssetsWindow</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>412e7ad63d6ea494693b15b7f0e6d906</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T10:37:41+07:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.ShaderReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>77d557646a16e46f7b7e2a893c2aa244</guid>
+    <fileName>Assets/Scripts/ActionButton.cs</fileName>
+    <timeStamp>2023-05-31T21:06:21.622674+07:00</timeStamp>
+    <typeFullName>
+      <string>ActionButton</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7b6e09f4a42004fb1ac2ed48af48b68a</guid>
+    <fileName>Assets/Scripts/Character.cs</fileName>
+    <timeStamp>2023-05-31T19:49:31.700421+07:00</timeStamp>
+    <typeFullName>
+      <string>CharacterType</string>
+      <string>Character</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>59dc568bce48f4a619f72d672461bd2d</guid>
+    <fileName>Assets/Scripts/GridManager.cs</fileName>
+    <timeStamp>2023-06-03T08:58:56.3670982+07:00</timeStamp>
+    <typeFullName>
+      <string>ActionType</string>
+      <string>GridManager</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>79d8d847c300c43e5882032652b40916</guid>
+    <fileName>Assets/Scripts/GridTile.cs</fileName>
+    <timeStamp>2023-05-31T21:17:10.7828209+07:00</timeStamp>
+    <typeFullName>
+      <string>GridTile</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d9a0ad4c5271f46018085f96a77114ae</guid>
+    <fileName>Assets/Scripts/Tile.cs</fileName>
+    <timeStamp>2023-05-31T19:49:35.2356084+07:00</timeStamp>
+    <typeFullName>
+      <string>Tile</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3bbef22eb814a9647b6c1f03e99d95da</guid>
+    <fileName>Assets/Editor/Migration/AddVuforiaEnginePackage.cs</fileName>
+    <timeStamp>2023-05-10T20:34:19+07:00</timeStamp>
+    <typeFullName>
+      <string>AddVuforiaEnginePackage</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+</ArrayOfTypeDate>

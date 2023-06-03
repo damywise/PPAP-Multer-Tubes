@@ -27,6 +27,7 @@ public class GridManager : MonoBehaviour
     public TextMeshProUGUI jobText;
     private GameObject selectedCharacter;
     private ActionType actionType = ActionType.Move;
+    private bool isEnemyTurn = false;
 
     // material
     public Material walkableTileMaterial;
@@ -120,21 +121,34 @@ public class GridManager : MonoBehaviour
     // select character
     public void SelectCharacter(int x, int y)
     {
-        ClearTiles();
-
-        // change grid tile on position to selected
-        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+        if (isEnemyTurn)
+            return;
 
         // if selecting enemy
         if (enemies[x, y] != null)
         {
+            MakeAllCharactersOpaque();
             healthText.gameObject.SetActive(true);
             jobText.gameObject.SetActive(true);
-            healthText.text = "Health: " + enemies[x,y].GetComponent<Character>().health;
-            jobText.text = "Enemy\nJob: " + enemies[x,y].GetComponent<Character>().characterType;
+            healthText.text = "Health: " + enemies[x, y].GetComponent<Character>().health;
+            jobText.text = "Enemy\nJob: " + enemies[x, y].GetComponent<Character>().characterType;
+
+            if (grid[x, y].isAttackable)
+            {
+                AttackEnemy(x, y);
+            }
+            else
+            {
+                ClearTiles();
+                tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+            }
+
             return;
         }
         // else
+        ClearTiles();
+
+        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
 
         attackButton.SetActive(true);
         moveButton.SetActive(true);
@@ -256,7 +270,10 @@ public class GridManager : MonoBehaviour
             if (enemies[newX, newY] != null)
             {
                 if (actionType == ActionType.Attack)
+                {
                     tiles[newX, newY].GetComponent<MeshRenderer>().material = enemyTileMaterial;
+                    grid[newX, newY].isAttackable = true;
+                }
                 continue;
             }
             tiles[newX, newY].GetComponent<MeshRenderer>().material =
@@ -272,9 +289,27 @@ public class GridManager : MonoBehaviour
         MakeCharacterTransparent(selectedCharacter);
     }
 
+    private void AttackEnemy(int x, int y)
+    {
+        enemies[x, y].GetComponent<Character>().health -= selectedCharacter
+            .GetComponent<Character>()
+            .damage;
+        if (enemies[x, y].GetComponent<Character>().health <= 0)
+        {
+            Destroy(enemies[x, y]);
+            enemies[x, y] = null;
+            StartCoroutine(EnemyTurn());
+        }
+        healthText.text = "Health: " + enemies[x, y].GetComponent<Character>().health;
+
+        StartCoroutine(EnemyTurn());
+    }
+
     // select tile on grid
     public void SelectTile(int x, int y)
     {
+        if (isEnemyTurn)
+            return;
         attackButton.SetActive(false);
         moveButton.SetActive(false);
         healthText.gameObject.SetActive(false);
@@ -307,25 +342,88 @@ public class GridManager : MonoBehaviour
 
             MakeCharacterOpaque(selectedCharacter);
             selectedCharacter = null;
+            // start enemy turn
+            StartCoroutine(EnemyTurn());
         }
         else
         {
-            foreach (var character in characters)
-            {
-                if (character != null)
-                {
-                    character.GetComponent<CapsuleCollider>().enabled = true;
-                    MakeCharacterOpaque(character);
-                }
-            }
+            MakeAllCharactersOpaque();
         }
 
         if (enemies[x, y] != null && isAttackable)
         {
-            // TODO(damywise): attack enemy by dmg
+            AttackEnemy(x, y);
         }
 
         ClearTiles();
+    }
+
+    private void MakeAllCharactersOpaque()
+    {
+        foreach (var character in characters)
+        {
+            if (character != null)
+            {
+                character.GetComponent<CapsuleCollider>().enabled = true;
+                MakeCharacterOpaque(character);
+            }
+        }
+    }
+
+    private IEnumerator EnemyTurn()
+    {
+        isEnemyTurn = true;
+        Debug.Log("Enemy Turn");
+        ClearTiles();
+
+        // prevent anything from selectable
+        foreach (var character in characters)
+        {
+            if (character != null)
+            {
+                character.GetComponent<CapsuleCollider>().enabled = false;
+            }
+        }
+
+        List<GameObject> newEnemies = new List<GameObject>();
+        foreach (var enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                newEnemies.Add(enemy);
+            }
+        }
+
+        // enemy AI
+        if (newEnemies.Capacity != 0)
+        {
+            int randomNumber = Random.Range(0, newEnemies.Capacity);
+            GameObject enemy = newEnemies[randomNumber];
+            Character enemyCharacter = enemy.GetComponent<Character>();
+            // wait for 1 second
+            yield return new WaitForSeconds(1);
+
+            int x = enemyCharacter.x;
+            int y = enemyCharacter.y;
+            ClearTiles();
+            tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+
+            healthText.gameObject.SetActive(true);
+            jobText.gameObject.SetActive(true);
+            healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
+            jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
+
+            // wait 1 second
+            yield return new WaitForSeconds(1);
+        }
+
+        // end enemy turn
+        isEnemyTurn = false;
+        ClearTiles();
+        healthText.gameObject.SetActive(false);
+        jobText.gameObject.SetActive(false);
+        Debug.Log("Player Turn");
+        MakeAllCharactersOpaque();
     }
 
     public void HandleChangeAction(ActionType _actionType)
@@ -370,18 +468,11 @@ public class GridManager : MonoBehaviour
     {
         // Create a new material
         Material newMat = new Material(character.GetComponent<Renderer>().material);
-        newMat.SetFloat("_Mode", 3);
-        newMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        newMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        newMat.SetInt("_ZWrite", 0);
-        newMat.DisableKeyword("_ALPHATEST_ON");
-        newMat.EnableKeyword("_ALPHABLEND_ON");
-        newMat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        newMat.renderQueue = 3000;
+
         // Get the current color of the material
         Color currentColor = newMat.color;
 
-        // Set the alpha value of the color to 0.5f (half transparent)
+        // Set the alpha value of the color to 1f (opaque)
         currentColor.a = 1f;
 
         // Set the new color on the material
@@ -401,6 +492,7 @@ public class GridManager : MonoBehaviour
             {
                 tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableTileMaterial;
                 grid[i, j].isWalkable = false;
+                grid[i, j].isAttackable = false;
             }
         }
     }

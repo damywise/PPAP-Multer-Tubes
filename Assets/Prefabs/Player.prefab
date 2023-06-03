@@ -115,5 +115,5 @@ MonoBehaviour:
   y: 0
   health: 100
   maxHealth: 100
-  damage: 10
+  damage: 50
   characterType: 0

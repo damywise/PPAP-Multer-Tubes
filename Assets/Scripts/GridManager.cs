@@ -120,12 +120,27 @@ public class GridManager : MonoBehaviour
     // select character
     public void SelectCharacter(int x, int y)
     {
+        ClearTiles();
+
+        // change grid tile on position to selected
+        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+
+        // if selecting enemy
+        if (enemies[x, y] != null)
+        {
+            healthText.gameObject.SetActive(true);
+            jobText.gameObject.SetActive(true);
+            healthText.text = "Health: " + enemies[x,y].GetComponent<Character>().health;
+            jobText.text = "Enemy\nJob: " + enemies[x,y].GetComponent<Character>().characterType;
+            return;
+        }
+        // else
+
         attackButton.SetActive(true);
         moveButton.SetActive(true);
         healthText.gameObject.SetActive(true);
         jobText.gameObject.SetActive(true);
 
-        ClearTiles();
         // enable collider and make opaque for all character except the newly selected one
         foreach (var character in characters)
         {
@@ -135,9 +150,6 @@ public class GridManager : MonoBehaviour
                 MakeCharacterOpaque(character);
             }
         }
-
-        // change grid tile on character to selected
-        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
 
         // change grid tile on around character to walkable if there is no character or obstacle
         selectedCharacter = characters[x, y];
@@ -308,9 +320,9 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        if (enemies[x,y] != null && isAttackable) {
+        if (enemies[x, y] != null && isAttackable)
+        {
             // TODO(damywise): attack enemy by dmg
-
         }
 
         ClearTiles();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum ActionType
 {
@@ -20,6 +21,10 @@ public class GridManager : MonoBehaviour
     public GameObject tilePrefab;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameObject attackButton;
+    public GameObject moveButton;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI jobText;
     private GameObject selectedCharacter;
     private ActionType actionType = ActionType.Move;
 
@@ -32,13 +37,20 @@ public class GridManager : MonoBehaviour
     public Material enemyTileMaterial;
 
     private float scale;
+    private float offsetX;
+    private float offsetY;
 
     // Start is called before the first frame update
     void Start()
     {
-        scale = 0.1f;
-        width = 6;
-        height = 6;
+        attackButton.SetActive(false);
+        moveButton.SetActive(false);
+        healthText.gameObject.SetActive(false);
+        jobText.gameObject.SetActive(false);
+
+        offsetX = -width * 5 + 5;
+        offsetY = -height * 5 + 5f;
+        scale = 10f;
         Debug.Log("Hello Worldhehehe");
         CreateGrid();
         tiles = new GameObject[width, height];
@@ -50,12 +62,14 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
+                float posX = grid[x, y].position.x;
+                float posY = grid[x, y].position.z;
                 // instantiate player if on first row
                 if (x == 0)
                 {
                     characters[x, y] = Instantiate(
                         playerPrefab,
-                        new Vector3(x * scale, playerPrefab.transform.position.y, y * scale),
+                        new Vector3(posX, playerPrefab.transform.position.y, posY),
                         Quaternion.identity
                     );
 
@@ -71,11 +85,17 @@ public class GridManager : MonoBehaviour
 
                 // instantiate enemy if on last row
                 if (x == width - 1)
+                {
                     enemies[x, y] = Instantiate(
                         enemyPrefab,
-                        new Vector3(x * scale, enemyPrefab.transform.position.y, y * scale),
+                        new Vector3(posX, enemyPrefab.transform.position.y, posY),
                         Quaternion.identity
                     );
+
+                    // initialize script attached to enemy
+                    enemies[x, y].GetComponent<Character>().x = x;
+                    enemies[x, y].GetComponent<Character>().y = y;
+                }
             }
         }
     }
@@ -88,7 +108,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 grid[x, y] = new GridTile();
-                grid[x, y].position = new Vector3(x * scale, 0, y * scale);
+                grid[x, y].position = new Vector3(x * scale + offsetX, 0, y * scale + offsetY);
                 grid[x, y].isWalkable = false;
             }
         }
@@ -100,6 +120,11 @@ public class GridManager : MonoBehaviour
     // select character
     public void SelectCharacter(int x, int y)
     {
+        attackButton.SetActive(true);
+        moveButton.SetActive(true);
+        healthText.gameObject.SetActive(true);
+        jobText.gameObject.SetActive(true);
+
         ClearTiles();
         // enable collider and make opaque for all character except the newly selected one
         foreach (var character in characters)
@@ -116,24 +141,30 @@ public class GridManager : MonoBehaviour
 
         // change grid tile on around character to walkable if there is no character or obstacle
         selectedCharacter = characters[x, y];
+        CharacterType characterType = selectedCharacter.GetComponent<Character>().characterType;
+
+        healthText.text = "Health: " + selectedCharacter.GetComponent<Character>().health;
+        jobText.text = "Job: " + characterType;
         int[,] moveDirections = null;
-        if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Warrior)
+        if (characterType == CharacterType.Warrior)
             moveDirections = new int[,]
             {
                 { 1, 0 },
+                { -1, 0 },
+                { 0, 1 },
+                { 0, -1 },
+                //
                 { 1, 1 },
                 { 1, -1 },
-                { 2, 0 },
-                { -1, 0 },
                 { -1, 1 },
                 { -1, -1 },
+                //
+                { 2, 0 },
                 { -2, 0 },
-                { 0, 1 },
                 { 0, 2 },
-                { 0, -1 },
                 { 0, -2 }
             };
-        else if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Gunner)
+        else if (characterType == CharacterType.Gunner)
             moveDirections = new int[,]
             {
                 { 1, 0 },
@@ -143,7 +174,7 @@ public class GridManager : MonoBehaviour
             };
         // attack directions
         int[,] attackDirections = null;
-        if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Warrior)
+        if (characterType == CharacterType.Warrior)
             attackDirections = new int[,]
             {
                 { 1, 0 },
@@ -151,20 +182,22 @@ public class GridManager : MonoBehaviour
                 { 0, 1 },
                 { 0, -1 }
             };
-        else if (selectedCharacter.GetComponent<Character>().characterType == CharacterType.Gunner)
+        else if (characterType == CharacterType.Gunner)
             attackDirections = new int[,]
             {
                 { 1, 0 },
+                { -1, 0 },
+                { 0, 1 },
+                { 0, -1 },
+                //
                 { 1, 1 },
                 { 1, -1 },
-                { 2, 0 },
-                { -1, 0 },
                 { -1, 1 },
                 { -1, -1 },
+                //
+                { 2, 0 },
                 { -2, 0 },
-                { 0, 1 },
                 { 0, 2 },
-                { 0, -1 },
                 { 0, -2 }
             };
 
@@ -172,6 +205,33 @@ public class GridManager : MonoBehaviour
 
         for (int i = 0; i < directions.GetLength(0); i++)
         {
+            // cannot skip 2 tiles
+            {
+                if (
+                    (directions[i, 0] > 1)
+                    && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isWalkable
+                )
+                    continue;
+
+                if (
+                    (directions[i, 0] < -1)
+                    && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isWalkable
+                )
+                    continue;
+
+                if (
+                    (directions[i, 1] > 1)
+                    && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isWalkable
+                )
+                    continue;
+
+                if (
+                    (directions[i, 1] < -1)
+                    && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isWalkable
+                )
+                    continue;
+            }
+
             int newX = x + directions[i, 0];
             int newY = y + directions[i, 1];
             if (newX < 0 || newX >= width || newY < 0 || newY >= height)
@@ -203,6 +263,11 @@ public class GridManager : MonoBehaviour
     // select tile on grid
     public void SelectTile(int x, int y)
     {
+        attackButton.SetActive(false);
+        moveButton.SetActive(false);
+        healthText.gameObject.SetActive(false);
+        jobText.gameObject.SetActive(false);
+
         bool isWalkable = grid[x, y].isWalkable;
         bool isAttackable = grid[x, y].isAttackable;
 
@@ -212,10 +277,12 @@ public class GridManager : MonoBehaviour
             selectedCharacter.GetComponent<CapsuleCollider>().enabled = true;
             // move character
             // TODO: animate character move
+            float posX = grid[x, y].position.x;
+            float posY = grid[x, y].position.z;
             selectedCharacter.transform.position = new Vector3(
-                x * scale,
+                posX,
                 selectedCharacter.transform.position.y,
-                y * scale
+                posY
             );
             int oldX = selectedCharacter.GetComponent<Character>().x;
             int oldY = selectedCharacter.GetComponent<Character>().y;
@@ -239,6 +306,11 @@ public class GridManager : MonoBehaviour
                     MakeCharacterOpaque(character);
                 }
             }
+        }
+
+        if (enemies[x,y] != null && isAttackable) {
+            // TODO(damywise): attack enemy by dmg
+
         }
 
         ClearTiles();

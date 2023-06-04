@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="Pucuk-Harum-12000" size="12000.000000 32629.787109" />
     <ImageTarget name="PucukHarum" size="3.000000 8.157447" />
   </Tracking>
 </QCARConfig>

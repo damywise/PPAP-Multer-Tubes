@@ -291,17 +291,18 @@ public class GridManager : MonoBehaviour
 
     private void AttackEnemy(int x, int y)
     {
-        enemies[x, y].GetComponent<Character>().health -= selectedCharacter
-            .GetComponent<Character>()
-            .damage;
-        if (enemies[x, y].GetComponent<Character>().health <= 0)
+        // Debug.Log("Attacking enemy at (" + x + "," + y + ")");
+        var enemy = enemies[x, y].GetComponent<Character>();
+        enemy.health -= selectedCharacter.GetComponent<Character>().damage;
+        // Debug.Log("Enemy health: " + enemy.health);
+        if (enemy.health <= 0)
         {
             Destroy(enemies[x, y]);
             enemies[x, y] = null;
-            StartCoroutine(EnemyTurn());
+            // Debug.Log("Enemy destroyed");
         }
-        healthText.text = "Health: " + enemies[x, y].GetComponent<Character>().health;
-
+        healthText.text = "Health: " + enemy.health;
+        // Debug.Log("Updated health text: " + healthText.text);
         StartCoroutine(EnemyTurn());
     }
 
@@ -371,60 +372,67 @@ public class GridManager : MonoBehaviour
     }
 
     private IEnumerator EnemyTurn()
+{
+    healthText.gameObject.SetActive(false);
+    jobText.gameObject.SetActive(false);
+    moveButton.SetActive(false);
+    attackButton.SetActive(false);
+    isEnemyTurn = true;
+    Debug.Log("Enemy Turn");
+    ClearTiles();
+
+    // prevent anything from selectable
+    foreach (var character in characters)
     {
-        isEnemyTurn = true;
-        Debug.Log("Enemy Turn");
-        ClearTiles();
-
-        // prevent anything from selectable
-        foreach (var character in characters)
+        if (character != null)
         {
-            if (character != null)
-            {
-                character.GetComponent<CapsuleCollider>().enabled = false;
-            }
+            character.GetComponent<CapsuleCollider>().enabled = false;
         }
-
-        List<GameObject> newEnemies = new List<GameObject>();
-        foreach (var enemy in enemies)
-        {
-            if (enemy != null)
-            {
-                newEnemies.Add(enemy);
-            }
-        }
-
-        // enemy AI
-        if (newEnemies.Capacity != 0)
-        {
-            int randomNumber = Random.Range(0, newEnemies.Capacity);
-            GameObject enemy = newEnemies[randomNumber];
-            Character enemyCharacter = enemy.GetComponent<Character>();
-            // wait for 1 second
-            yield return new WaitForSeconds(1);
-
-            int x = enemyCharacter.x;
-            int y = enemyCharacter.y;
-            ClearTiles();
-            tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
-
-            healthText.gameObject.SetActive(true);
-            jobText.gameObject.SetActive(true);
-            healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
-            jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
-
-            // wait 1 second
-            yield return new WaitForSeconds(1);
-        }
-
-        // end enemy turn
-        isEnemyTurn = false;
-        ClearTiles();
-        healthText.gameObject.SetActive(false);
-        jobText.gameObject.SetActive(false);
-        Debug.Log("Player Turn");
-        MakeAllCharactersOpaque();
     }
+
+    GameObject[] newEnemies = new GameObject[enemies.Length];
+    int count = 0;
+    foreach (var enemy in enemies)
+    {
+        if (enemy != null)
+        {
+            newEnemies[count] = enemy;
+            count++;
+        }
+    }
+
+    // enemy AI
+    if (count != 0)
+    {
+        int randomNumber = Random.Range(0, count);
+        GameObject enemy = newEnemies[randomNumber];
+        Character enemyCharacter = enemy.GetComponent<Character>();
+        // wait for 0.1 second
+        yield return new WaitForSeconds(0.1f);
+
+        int x = enemyCharacter.x;
+        int y = enemyCharacter.y;
+        ClearTiles();
+        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+
+        healthText.gameObject.SetActive(true);
+        jobText.gameObject.SetActive(true);
+        healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
+        jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
+
+        // wait 1 second
+        yield return new WaitForSeconds(1);
+    }
+
+    // end enemy turn
+    isEnemyTurn = false;
+    ClearTiles();
+    healthText.gameObject.SetActive(false);
+    jobText.gameObject.SetActive(false);
+    Debug.Log("Player Turn");
+    MakeAllCharactersOpaque();
+}
+
 
     public void HandleChangeAction(ActionType _actionType)
     {

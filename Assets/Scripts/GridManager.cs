@@ -44,28 +44,34 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("GAME STARTED 001");
+        // Disable buttons and UI elements
         attackButton.SetActive(false);
         moveButton.SetActive(false);
         healthText.gameObject.SetActive(false);
         jobText.gameObject.SetActive(false);
 
+        // Set up grid
         offsetX = -width * 5 + 5;
         offsetY = -height * 5 + 5;
         scale = 0.0025f;
         CreateGrid();
+
+        // Initialize arrays for game objects
         tiles = new GameObject[width, height];
         characters = new GameObject[width, height];
         enemies = new GameObject[width, height];
         obstacles = new GameObject[width, height];
-        // spawn tilePrefab from grid
+
+        // Spawn tiles, characters, enemies, and obstacles
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
+                // Get position of current grid cell
                 float posX = grid[x, y].position.x;
                 float posY = grid[x, y].position.z;
-                // instantiate player if on first row
+
+                // Spawn player on first row
                 if (x == 0)
                 {
                     characters[x, y] = Instantiate(
@@ -74,17 +80,22 @@ public class GridManager : MonoBehaviour
                         Quaternion.identity
                     );
 
-                    // initialize script attached to player
+                    // Set player properties
                     characters[x, y].GetComponent<Character>().x = x;
                     characters[x, y].GetComponent<Character>().y = y;
+                    characters[x, y].GetComponent<Character>().characterType =
+                        y % 2 == 0 ? CharacterType.Gunner : CharacterType.Warrior;
+                    characters[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
                 }
 
+                // Spawn tile on current grid cell
                 tiles[x, y] = Instantiate(tilePrefab, grid[x, y].position, Quaternion.identity);
-                // initialize script attached to tile
+
+                // Set tile properties
                 tiles[x, y].GetComponent<Tile>().x = x;
                 tiles[x, y].GetComponent<Tile>().y = y;
 
-                // instantiate enemy if on last row
+                // Spawn enemy on last row
                 if (x == width - 1)
                 {
                     enemies[x, y] = Instantiate(
@@ -93,9 +104,12 @@ public class GridManager : MonoBehaviour
                         Quaternion.identity
                     );
 
-                    // initialize script attached to enemy
+                    // Set enemy properties
                     enemies[x, y].GetComponent<Character>().x = x;
                     enemies[x, y].GetComponent<Character>().y = y;
+                    enemies[x, y].GetComponent<Character>().characterType =
+                        y % 2 == 0 ? CharacterType.Gunner : CharacterType.Warrior;
+                    enemies[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
                 }
             }
         }
@@ -237,29 +251,49 @@ public class GridManager : MonoBehaviour
         {
             // cannot skip 2 tiles
             {
-                if (
-                    (directions[i, 0] > 1)
-                    && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isWalkable
-                )
-                    continue;
+                if (directions[i, 0] > 1 && x + directions[i, 0] - 1 >= 0)
+                {
+                    if (
+                        actionType == ActionType.Move
+                            && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isWalkable
+                        || actionType == ActionType.Attack
+                            && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isAttackable
+                    )
+                        continue;
+                }
 
-                if (
-                    (directions[i, 0] < -1)
-                    && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isWalkable
-                )
-                    continue;
+                if (directions[i, 0] < -1 && x + directions[i, 0] + 1 < width)
+                {
+                    if (
+                        actionType == ActionType.Move
+                            && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isWalkable
+                        || actionType == ActionType.Attack
+                            && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isAttackable
+                    )
+                        continue;
+                }
 
-                if (
-                    (directions[i, 1] > 1)
-                    && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isWalkable
-                )
-                    continue;
+                if (directions[i, 1] > 1 && y + directions[i, 1] - 1 >= 0)
+                {
+                    if (
+                        actionType == ActionType.Move
+                            && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isWalkable
+                        || actionType == ActionType.Attack
+                            && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isAttackable
+                    )
+                        continue;
+                }
 
-                if (
-                    (directions[i, 1] < -1)
-                    && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isWalkable
-                )
-                    continue;
+                if (directions[i, 1] < -1 && y + directions[i, 1] + 1 < height)
+                {
+                    if (
+                        actionType == ActionType.Move
+                            && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isWalkable
+                        || actionType == ActionType.Attack
+                            && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isAttackable
+                    )
+                        continue;
+                }
             }
 
             int newX = x + directions[i, 0];

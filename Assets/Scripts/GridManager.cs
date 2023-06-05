@@ -44,15 +44,15 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("GAME STARTED 001");
         attackButton.SetActive(false);
         moveButton.SetActive(false);
         healthText.gameObject.SetActive(false);
         jobText.gameObject.SetActive(false);
 
         offsetX = -width * 5 + 5;
-        offsetY = -height * 5 + 5f;
-        scale = 10f;
-        Debug.Log("Hello Worldhehehe");
+        offsetY = -height * 5 + 5;
+        scale = 0.0025f;
         CreateGrid();
         tiles = new GameObject[width, height];
         characters = new GameObject[width, height];
@@ -109,7 +109,11 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 grid[x, y] = new GridTile();
-                grid[x, y].position = new Vector3(x * scale + offsetX, 0, y * scale + offsetY);
+                grid[x, y].position = new Vector3(
+                    x * scale * 10 + offsetX * scale,
+                    0,
+                    y * scale * 10 + offsetY * scale
+                );
                 grid[x, y].isWalkable = false;
             }
         }
@@ -372,67 +376,66 @@ public class GridManager : MonoBehaviour
     }
 
     private IEnumerator EnemyTurn()
-{
-    healthText.gameObject.SetActive(false);
-    jobText.gameObject.SetActive(false);
-    moveButton.SetActive(false);
-    attackButton.SetActive(false);
-    isEnemyTurn = true;
-    Debug.Log("Enemy Turn");
-    ClearTiles();
-
-    // prevent anything from selectable
-    foreach (var character in characters)
     {
-        if (character != null)
-        {
-            character.GetComponent<CapsuleCollider>().enabled = false;
-        }
-    }
-
-    GameObject[] newEnemies = new GameObject[enemies.Length];
-    int count = 0;
-    foreach (var enemy in enemies)
-    {
-        if (enemy != null)
-        {
-            newEnemies[count] = enemy;
-            count++;
-        }
-    }
-
-    // enemy AI
-    if (count != 0)
-    {
-        int randomNumber = Random.Range(0, count);
-        GameObject enemy = newEnemies[randomNumber];
-        Character enemyCharacter = enemy.GetComponent<Character>();
-        // wait for 0.1 second
-        yield return new WaitForSeconds(0.1f);
-
-        int x = enemyCharacter.x;
-        int y = enemyCharacter.y;
+        healthText.gameObject.SetActive(false);
+        jobText.gameObject.SetActive(false);
+        moveButton.SetActive(false);
+        attackButton.SetActive(false);
+        isEnemyTurn = true;
+        Debug.Log("Enemy Turn");
         ClearTiles();
-        tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
 
-        healthText.gameObject.SetActive(true);
-        jobText.gameObject.SetActive(true);
-        healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
-        jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
+        // prevent anything from selectable
+        foreach (var character in characters)
+        {
+            if (character != null)
+            {
+                character.GetComponent<CapsuleCollider>().enabled = false;
+            }
+        }
 
-        // wait 1 second
-        yield return new WaitForSeconds(1);
+        GameObject[] newEnemies = new GameObject[enemies.Length];
+        int count = 0;
+        foreach (var enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                newEnemies[count] = enemy;
+                count++;
+            }
+        }
+
+        // enemy AI
+        if (count != 0)
+        {
+            int randomNumber = Random.Range(0, count);
+            GameObject enemy = newEnemies[randomNumber];
+            Character enemyCharacter = enemy.GetComponent<Character>();
+            // wait for 0.1 second
+            yield return new WaitForSeconds(0.1f);
+
+            int x = enemyCharacter.x;
+            int y = enemyCharacter.y;
+            ClearTiles();
+            tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+
+            healthText.gameObject.SetActive(true);
+            jobText.gameObject.SetActive(true);
+            healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
+            jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
+
+            // wait 1 second
+            yield return new WaitForSeconds(1);
+        }
+
+        // end enemy turn
+        isEnemyTurn = false;
+        ClearTiles();
+        healthText.gameObject.SetActive(false);
+        jobText.gameObject.SetActive(false);
+        Debug.Log("Player Turn");
+        MakeAllCharactersOpaque();
     }
-
-    // end enemy turn
-    isEnemyTurn = false;
-    ClearTiles();
-    healthText.gameObject.SetActive(false);
-    jobText.gameObject.SetActive(false);
-    Debug.Log("Player Turn");
-    MakeAllCharactersOpaque();
-}
-
 
     public void HandleChangeAction(ActionType _actionType)
     {

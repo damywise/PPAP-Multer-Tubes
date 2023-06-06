@@ -25,6 +25,7 @@ public class GridManager : MonoBehaviour
     public GameObject moveButton;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI jobText;
+    public TextMeshProUGUI turnText;
     private GameObject selectedCharacter;
     private ActionType actionType = ActionType.Move;
     private bool isEnemyTurn = false;
@@ -36,6 +37,10 @@ public class GridManager : MonoBehaviour
     public Material hoveredTileMaterial;
     public Material attackableTileMaterial;
     public Material enemyTileMaterial;
+
+    //particle effect
+    public GameObject warriorHitParticle;
+    public GameObject gunnerHitParticle;
 
     private float scale;
     private float offsetX;
@@ -153,7 +158,9 @@ public class GridManager : MonoBehaviour
 
             if (grid[x, y].isAttackable)
             {
-                AttackEnemy(x, y);
+                StartCoroutine(
+                    AttackEnemy(x, y, selectedCharacter.GetComponent<Character>().characterType)
+                );
             }
             else
             {
@@ -255,9 +262,7 @@ public class GridManager : MonoBehaviour
                 {
                     if (
                         actionType == ActionType.Move
-                            && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isWalkable
-                        || actionType == ActionType.Attack
-                            && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isAttackable
+                        && !grid[x + directions[i, 0] - 1, y + directions[i, 1]].isWalkable
                     )
                         continue;
                 }
@@ -266,9 +271,7 @@ public class GridManager : MonoBehaviour
                 {
                     if (
                         actionType == ActionType.Move
-                            && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isWalkable
-                        || actionType == ActionType.Attack
-                            && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isAttackable
+                        && !grid[x + directions[i, 0] + 1, y + directions[i, 1]].isWalkable
                     )
                         continue;
                 }
@@ -277,9 +280,7 @@ public class GridManager : MonoBehaviour
                 {
                     if (
                         actionType == ActionType.Move
-                            && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isWalkable
-                        || actionType == ActionType.Attack
-                            && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isAttackable
+                        && !grid[x + directions[i, 0], y + directions[i, 1] - 1].isWalkable
                     )
                         continue;
                 }
@@ -288,9 +289,7 @@ public class GridManager : MonoBehaviour
                 {
                     if (
                         actionType == ActionType.Move
-                            && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isWalkable
-                        || actionType == ActionType.Attack
-                            && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isAttackable
+                        && !grid[x + directions[i, 0], y + directions[i, 1] + 1].isWalkable
                     )
                         continue;
                 }
@@ -327,9 +326,8 @@ public class GridManager : MonoBehaviour
         MakeCharacterTransparent(selectedCharacter);
     }
 
-    private void AttackEnemy(int x, int y)
+    private IEnumerator AttackEnemy(int x, int y, CharacterType characterType)
     {
-        // Debug.Log("Attacking enemy at (" + x + "," + y + ")");
         var enemy = enemies[x, y].GetComponent<Character>();
         enemy.health -= selectedCharacter.GetComponent<Character>().damage;
         // Debug.Log("Enemy health: " + enemy.health);
@@ -340,6 +338,17 @@ public class GridManager : MonoBehaviour
             // Debug.Log("Enemy destroyed");
         }
         healthText.text = "Health: " + enemy.health;
+
+        // Debug.Log("Attacking enemy at (" + x + "," + y + ")");
+        // play particle effect when attacking enemy on grid and wait for it to finish
+        {
+            var particle = Instantiate(
+                characterType == CharacterType.Warrior ? warriorHitParticle : gunnerHitParticle,
+                new Vector3(grid[x, y].position.x, 0.01f, grid[x, y].position.z),
+                Quaternion.identity
+            );
+            yield return new WaitForSeconds(0.5f);
+        }
         // Debug.Log("Updated health text: " + healthText.text);
         StartCoroutine(EnemyTurn());
     }
@@ -349,6 +358,11 @@ public class GridManager : MonoBehaviour
     {
         if (isEnemyTurn)
             return;
+        if (characters[x, y] != null || enemies[x, y] != null)
+        {
+            SelectCharacter(x, y);
+            return;
+        }
         attackButton.SetActive(false);
         moveButton.SetActive(false);
         healthText.gameObject.SetActive(false);
@@ -389,11 +403,6 @@ public class GridManager : MonoBehaviour
             MakeAllCharactersOpaque();
         }
 
-        if (enemies[x, y] != null && isAttackable)
-        {
-            AttackEnemy(x, y);
-        }
-
         ClearTiles();
     }
 
@@ -411,6 +420,8 @@ public class GridManager : MonoBehaviour
 
     private IEnumerator EnemyTurn()
     {
+        turnText.text = "Enemy Turn";
+
         healthText.gameObject.SetActive(false);
         jobText.gameObject.SetActive(false);
         moveButton.SetActive(false);
@@ -459,10 +470,11 @@ public class GridManager : MonoBehaviour
             jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
 
             // wait 1 second
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.2f);
         }
 
         // end enemy turn
+        turnText.text = "Player Turn";
         isEnemyTurn = false;
         ClearTiles();
         healthText.gameObject.SetActive(false);

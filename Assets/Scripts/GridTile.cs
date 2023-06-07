@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public struct GridTile
 {
-    public Vector3 position;
-    public bool isWalkable;
-    public bool isAttackable;
+    public Vector3 Position;
+    public bool IsWalkable;
+    public bool IsAttackable;
 }

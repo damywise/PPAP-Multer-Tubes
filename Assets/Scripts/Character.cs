@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum CharacterType
@@ -18,23 +16,16 @@ public class Character : MonoBehaviour
 
     public CharacterType characterType;
 
-    private GridManager gridManager;
+    private GridManager _gridManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gridManager = FindObjectOfType<GridManager>();
+        _gridManager = FindObjectOfType<GridManager>();
     }
-
-    // Update is called once per frame
-    void Update() { }
 
     private void OnMouseDown()
     {
-        gridManager.SelectCharacter(x, y);
+        _gridManager.SelectCharacter(x, y);
     }
-
-    private void OnMouseEnter() { }
-
-    private void OnMouseExit() { }
 }

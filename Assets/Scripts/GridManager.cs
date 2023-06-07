@@ -44,6 +44,13 @@ public class GridManager : MonoBehaviour
     public GameObject warriorHitParticle;
     public GameObject gunnerHitParticle;
 
+    //sounds
+    private AudioSource audioSource;
+    public AudioClip swordSound;
+    public AudioClip gunSound;
+    public AudioClip walkSound;
+    public AudioClip hurtSound;
+
     private float scale;
     private float offsetX;
     private float offsetY;
@@ -51,6 +58,8 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         // Disable buttons and UI elements
         attackButton.SetActive(false);
         moveButton.SetActive(false);
@@ -91,7 +100,7 @@ public class GridManager : MonoBehaviour
                     characters[x, y].GetComponent<Character>().x = x;
                     characters[x, y].GetComponent<Character>().y = y;
                     characters[x, y].GetComponent<Character>().characterType =
-                        y % 2 == 0 ? CharacterType.Gunner : CharacterType.Warrior;
+                        y % 2 != 0 ? CharacterType.Gunner : CharacterType.Warrior;
                     characters[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
                 }
 
@@ -115,7 +124,7 @@ public class GridManager : MonoBehaviour
                     enemies[x, y].GetComponent<Character>().x = x;
                     enemies[x, y].GetComponent<Character>().y = y;
                     enemies[x, y].GetComponent<Character>().characterType =
-                        y % 2 == 0 ? CharacterType.Gunner : CharacterType.Warrior;
+                        y % 2 != 0 ? CharacterType.Gunner : CharacterType.Warrior;
                     enemies[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
                 }
             }
@@ -377,61 +386,67 @@ public class GridManager : MonoBehaviour
             : enemies[x, y].GetComponent<Character>();
         enemy.health -= selectedCharacter.GetComponent<Character>().damage;
         Debug.Log("Enemy health: " + enemy.health);
-        if (enemy.health <= 0)
-        {
-            if (isEnemyTurn)
-            {
-                Destroy(characters[x, y]);
-                characters[x, y] = null;
-            }
-            else
-            {
-                Destroy(enemies[x, y]);
-                enemies[x, y] = null;
-            }
-            Debug.Log("Enemy destroyed");
 
-            healthText.gameObject.SetActive(false);
-            jobText.gameObject.SetActive(false);
-
-            int count = 0;
-            foreach (var enemyChar in enemyChars)
-            {
-                if (enemyChar != null)
-                {
-                    count++;
-                }
-            }
-
-            if (count == 0)
-            {
-                attackButton.SetActive(false);
-                moveButton.SetActive(false);
-                healthText.gameObject.SetActive(false);
-                jobText.gameObject.SetActive(false);
-                if (isEnemyTurn)
-                {
-                    playerLose = true;
-                }
-                else
-                {
-                    enemyLose = true;
-                }
-            }
-        }
-        healthText.text = "Health: " + enemy.health;
-
-        isEnemyTurn = !isEnemyTurn;
         Debug.Log("Attacking enemy at (" + x + "," + y + ")");
-        // play particle effect when attacking enemy on grid and wait for it to finish
+        // play particle effect and sound when attacking enemy on grid and wait a few hunder milliseconds
         {
+            audioSource.PlayOneShot(characterType == CharacterType.Gunner ? gunSound : swordSound);
+
+            yield return new WaitForSeconds(characterType == CharacterType.Gunner ? 0.5f : 0.1f);
+
             var particle = Instantiate(
                 characterType == CharacterType.Warrior ? warriorHitParticle : gunnerHitParticle,
                 new Vector3(grid[x, y].position.x, 0.01f, grid[x, y].position.z),
                 Quaternion.identity
             );
-            yield return new WaitForSeconds(0.35f);
+
+            if (enemy.health <= 0)
+            {
+                if (isEnemyTurn)
+                {
+                    Destroy(characters[x, y]);
+                    characters[x, y] = null;
+                }
+                else
+                {
+                    Destroy(enemies[x, y]);
+                    enemies[x, y] = null;
+                }
+                Debug.Log("Enemy destroyed");
+
+                healthText.gameObject.SetActive(false);
+                jobText.gameObject.SetActive(false);
+
+                int count = 0;
+                foreach (var enemyChar in enemyChars)
+                {
+                    if (enemyChar != null)
+                    {
+                        count++;
+                    }
+                }
+
+                if (count == 0)
+                {
+                    attackButton.SetActive(false);
+                    moveButton.SetActive(false);
+                    healthText.gameObject.SetActive(false);
+                    jobText.gameObject.SetActive(false);
+                    if (isEnemyTurn)
+                    {
+                        playerLose = true;
+                    }
+                    else
+                    {
+                        enemyLose = true;
+                    }
+                }
+            }
+            healthText.text = "Health: " + enemy.health;
+            audioSource.PlayOneShot(hurtSound);
+            // yield return new WaitForSeconds(0.35f);
         }
+        isEnemyTurn = !isEnemyTurn;
         Debug.Log("Updated health text: " + healthText.text);
         // StartCoroutine(EnemyTurn());
     }
@@ -455,6 +470,7 @@ public class GridManager : MonoBehaviour
         // move character transform to position of tile
         if (selectedCharacter != null && isWalkable)
         {
+            audioSource.PlayOneShot(walkSound);
             selectedCharacter.GetComponent<CapsuleCollider>().enabled = true;
             // move character
             // TODO: animate character move

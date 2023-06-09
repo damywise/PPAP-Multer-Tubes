@@ -16,16 +16,16 @@ public class Character : MonoBehaviour
 
     public CharacterType characterType;
 
-    private GridManager _gridManager;
+    private GameController _gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        _gridManager = FindObjectOfType<GridManager>();
+        _gameController = FindObjectOfType<GameController>();
     }
 
     private void OnMouseDown()
     {
-        _gridManager.SelectCharacter(x, y);
+        _gameController.SelectCharacter(x, y);
     }
 }

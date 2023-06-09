@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum ActionType
 {
@@ -8,28 +10,32 @@ public enum ActionType
     Attack
 }
 
-public class GridManager : MonoBehaviour
+public class GameController : MonoBehaviour
 {
+    //settings
     public int width;
     public int height;
-    public GridTile[,] Grid;
-    public GameObject[,] Tiles;
-    public GameObject[,] Characters;
-    public GameObject[,] Enemies;
-    public GameObject[,] Obstacles;
+
+    //assets
+    private GridTile[,] _grid;
+    private GameObject[,] _tiles;
+    private GameObject[,] _characters;
+    private GameObject[,] _enemies;
+    private GameObject[,] _obstacles;
     public GameObject tilePrefab;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     public GameObject attackButton;
     public GameObject moveButton;
+    public GameObject gameScreen;
+    public GameObject titleScreen;
+    public GameObject winScreen;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI jobText;
     public TextMeshProUGUI turnText;
-    private GameObject _selectedCharacter;
-    private ActionType _actionType = ActionType.Move;
-    private bool _isEnemyTurn;
-    private bool _playerLose;
-    private bool _enemyLose;
+    public TextMeshProUGUI winText;
+    public Button titleScreenButton;
+    public Button playAgainButton;
 
     // material
     public Material walkableTileMaterial;
@@ -45,11 +51,19 @@ public class GridManager : MonoBehaviour
 
     //sounds
     private AudioSource _audioSource;
+    private AudioSource _backsound;
     public AudioClip swordSound;
     public AudioClip gunSound;
     public AudioClip walkSound;
     public AudioClip hurtSound;
+    public AudioClip winSound;
 
+    // misc
+    private GameObject _selectedCharacter;
+    private ActionType _actionType = ActionType.Move;
+    private bool _isEnemyTurn;
+    private bool _playerLose;
+    private bool _enemyLose;
     private float _scale;
     private float _offsetX;
     private float _offsetY;
@@ -58,16 +72,20 @@ public class GridManager : MonoBehaviour
     private static readonly int DstBlend = Shader.PropertyToID("_DstBlend");
     private static readonly int ZWrite = Shader.PropertyToID("_ZWrite");
 
-    // Start is called before the first frame update
-    private void Start()
+    public void TitleScreen()
     {
-        _audioSource = GetComponent<AudioSource>();
+        SceneManager.LoadScene("Game");
+    }
 
-        // Disable buttons and UI elements
-        attackButton.SetActive(false);
-        moveButton.SetActive(false);
-        healthText.gameObject.SetActive(false);
-        jobText.gameObject.SetActive(false);
+    public void StartGame()
+    {
+        titleScreen.SetActive(false);
+        gameScreen.SetActive(true);
+        winScreen.SetActive(false);
+
+        _backsound.Play();
+
+        _selectedCharacter = null;
 
         // Set up grid
         _offsetX = -width * 5 + 5;
@@ -76,10 +94,10 @@ public class GridManager : MonoBehaviour
         CreateGrid();
 
         // Initialize arrays for game objects
-        Tiles = new GameObject[width, height];
-        Characters = new GameObject[width, height];
-        Enemies = new GameObject[width, height];
-        Obstacles = new GameObject[width, height];
+        _tiles = new GameObject[width, height];
+        _characters = new GameObject[width, height];
+        _enemies = new GameObject[width, height];
+        _obstacles = new GameObject[width, height];
 
         // Spawn tiles, characters, enemies, and obstacles
         for (var x = 0; x < width; x++)
@@ -87,59 +105,72 @@ public class GridManager : MonoBehaviour
             for (var y = 0; y < height; y++)
             {
                 // Get position of current grid cell
-                var posX = Grid[x, y].Position.x;
-                var posY = Grid[x, y].Position.z;
+                var posX = _grid[x, y].Position.x;
+                var posY = _grid[x, y].Position.z;
 
                 // Spawn player on first row
                 if (x == 0)
                 {
-                    Characters[x, y] = Instantiate(
+                    _characters[x, y] = Instantiate(
                         playerPrefab,
                         new Vector3(posX, playerPrefab.transform.position.y, posY),
                         Quaternion.identity
                     );
 
                     // Set player properties
-                    Characters[x, y].GetComponent<Character>().x = x;
-                    Characters[x, y].GetComponent<Character>().y = y;
-                    Characters[x, y].GetComponent<Character>().characterType =
-                        y % 2 != 0 ? CharacterType.Gunner : CharacterType.Warrior;
-                    Characters[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
+                    _characters[x, y].GetComponent<Character>().x = x;
+                    _characters[x, y].GetComponent<Character>().y = y;
+                    _characters[x, y].GetComponent<Character>().characterType =
+                        y % 2 == 0 ? CharacterType.Gunner : CharacterType.Warrior;
+                    _characters[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
                 }
 
                 // Spawn tile on current grid cell
-                Tiles[x, y] = Instantiate(tilePrefab, Grid[x, y].Position, Quaternion.identity);
+                _tiles[x, y] = Instantiate(tilePrefab, _grid[x, y].Position, Quaternion.identity);
 
                 // Set tile properties
-                Tiles[x, y].GetComponent<Tile>().x = x;
-                Tiles[x, y].GetComponent<Tile>().y = y;
+                _tiles[x, y].GetComponent<Tile>().x = x;
+                _tiles[x, y].GetComponent<Tile>().y = y;
 
                 // Spawn enemy on last row
                 if (x != width - 1) continue;
-                Enemies[x, y] = Instantiate(
+                _enemies[x, y] = Instantiate(
                     enemyPrefab,
                     new Vector3(posX, enemyPrefab.transform.position.y, posY),
                     Quaternion.identity
                 );
 
                 // Set enemy properties
-                Enemies[x, y].GetComponent<Character>().x = x;
-                Enemies[x, y].GetComponent<Character>().y = y;
-                Enemies[x, y].GetComponent<Character>().characterType =
-                    y % 2 != 0 ? CharacterType.Gunner : CharacterType.Warrior;
-                Enemies[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
+                _enemies[x, y].GetComponent<Character>().x = x;
+                _enemies[x, y].GetComponent<Character>().y = y;
+                _enemies[x, y].GetComponent<Character>().characterType =
+                    y % 2 == 0 ? CharacterType.Gunner : CharacterType.Warrior;
+                _enemies[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
             }
         }
     }
 
+    // Start is called before the first frame update
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _backsound = GameObject.Find("Backsound").GetComponent<AudioSource>();
+        titleScreen.SetActive(true);
+        gameScreen.SetActive(false);
+        winScreen.SetActive(false);
+
+        playAgainButton.onClick.AddListener(() => StartGame());
+        titleScreenButton.onClick.AddListener(() => TitleScreen());
+    }
+
     private void CreateGrid()
     {
-        Grid = new GridTile[width, height];
-        for (int x = 0; x < width; x++)
+        _grid = new GridTile[width, height];
+        for (var x = 0; x < width; x++)
         {
-            for (int y = 0; y < height; y++)
+            for (var y = 0; y < height; y++)
             {
-                Grid[x, y] = new GridTile
+                _grid[x, y] = new GridTile
                 {
                     Position = new Vector3(
                         x * _scale * 10 + _offsetX * _scale,
@@ -155,18 +186,13 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_enemyLose || _playerLose)
-        {
-            turnText.text = _playerLose ? "Player 2 WIN" : "Player 1 WIN";
-        }
-        else
-            turnText.text = _isEnemyTurn ? "Player 2 Turn" : "Player 1 Turn";
+        turnText.text = _isEnemyTurn ? "Dutch Turn" : "Indonesia Turn";
     }
 
     // select character
     public void SelectCharacter(int x, int y)
     {
-        var enemy = _isEnemyTurn ? Characters[x, y] : Enemies[x, y];
+        var enemy = _isEnemyTurn ? _characters[x, y] : _enemies[x, y];
 
         // if selecting enemy
         if (enemy != null)
@@ -175,8 +201,9 @@ public class GridManager : MonoBehaviour
             healthText.gameObject.SetActive(true);
             jobText.gameObject.SetActive(true);
             healthText.text = "Health: " + enemy.GetComponent<Character>().health;
-            jobText.text = "Enemy\nJob: " + enemy.GetComponent<Character>().characterType;
-            if (Grid[x, y].IsAttackable)
+            jobText.text = "Enemy\nJob: " + enemy.GetComponent<Character>().characterType + "\nDamage: " +
+                           enemy.GetComponent<Character>().damage;
+            if (_grid[x, y].IsAttackable)
             {
                 ClearTiles();
                 StartCoroutine(
@@ -186,22 +213,23 @@ public class GridManager : MonoBehaviour
             else
             {
                 ClearTiles();
-                Tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+                _tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
             }
 
             return;
         }
+
         // else
         ClearTiles();
 
-        Tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+        _tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
 
         attackButton.SetActive(true);
         moveButton.SetActive(true);
         healthText.gameObject.SetActive(true);
         jobText.gameObject.SetActive(true);
 
-        var chars = _isEnemyTurn ? Enemies : Characters;
+        var chars = _isEnemyTurn ? _enemies : _characters;
 
         // enable collider and make opaque for all character except the newly selected one
         foreach (var character in chars)
@@ -211,11 +239,11 @@ public class GridManager : MonoBehaviour
             MakeCharacterOpaque(character);
         }
 
-        _selectedCharacter = _isEnemyTurn ? Enemies[x, y] : Characters[x, y];
+        _selectedCharacter = _isEnemyTurn ? _enemies[x, y] : _characters[x, y];
         var characterType = _selectedCharacter.GetComponent<Character>().characterType;
 
         healthText.text = "Health: " + _selectedCharacter.GetComponent<Character>().health;
-        jobText.text = "Job: " + characterType;
+        jobText.text = "Job: " + characterType + "\nDamage: " + _selectedCharacter.GetComponent<Character>().damage;
 
         var moveDirections = characterType switch
         {
@@ -262,7 +290,7 @@ public class GridManager : MonoBehaviour
                     {
                         if (
                             _actionType == ActionType.Move
-                            && !Grid[x + directions[i, 0] - 1, y + directions[i, 1]].IsWalkable
+                            && !_grid[x + directions[i, 0] - 1, y + directions[i, 1]].IsWalkable
                         )
                             continue;
                     }
@@ -277,7 +305,7 @@ public class GridManager : MonoBehaviour
                     {
                         if (
                             _actionType == ActionType.Move
-                            && !Grid[x + directions[i, 0] + 1, y + directions[i, 1]].IsWalkable
+                            && !_grid[x + directions[i, 0] + 1, y + directions[i, 1]].IsWalkable
                         )
                             continue;
                     }
@@ -292,7 +320,7 @@ public class GridManager : MonoBehaviour
                     {
                         if (
                             _actionType == ActionType.Move
-                            && !Grid[x + directions[i, 0], y + directions[i, 1] - 1].IsWalkable
+                            && !_grid[x + directions[i, 0], y + directions[i, 1] - 1].IsWalkable
                         )
                             continue;
                     }
@@ -307,7 +335,7 @@ public class GridManager : MonoBehaviour
                     {
                         if (
                             _actionType == ActionType.Move
-                            && !Grid[x + directions[i, 0], y + directions[i, 1] + 1].IsWalkable
+                            && !_grid[x + directions[i, 0], y + directions[i, 1] + 1].IsWalkable
                         )
                             continue;
                     }
@@ -318,34 +346,34 @@ public class GridManager : MonoBehaviour
                 if (newX < 0 || newX >= width || newY < 0 || newY >= height)
                     continue;
                 // if (grid[newX, newY].isWalkable) continue;
-                if (Characters[newX, newY] != null)
+                if (_characters[newX, newY] != null)
                 {
                     if (_isEnemyTurn && _actionType == ActionType.Attack)
                     {
-                        Tiles[newX, newY].GetComponent<MeshRenderer>().material = enemyTileMaterial;
-                        Grid[newX, newY].IsAttackable = true;
+                        _tiles[newX, newY].GetComponent<MeshRenderer>().material = enemyTileMaterial;
+                        _grid[newX, newY].IsAttackable = true;
                     }
 
                     continue;
                 }
 
-                if (Obstacles[newX, newY] != null)
+                if (_obstacles[newX, newY] != null)
                     continue;
-                if (Enemies[newX, newY] != null)
+                if (_enemies[newX, newY] != null)
                 {
                     if (!_isEnemyTurn && _actionType == ActionType.Attack)
                     {
-                        Tiles[newX, newY].GetComponent<MeshRenderer>().material = enemyTileMaterial;
-                        Grid[newX, newY].IsAttackable = true;
+                        _tiles[newX, newY].GetComponent<MeshRenderer>().material = enemyTileMaterial;
+                        _grid[newX, newY].IsAttackable = true;
                     }
 
                     continue;
                 }
 
-                Tiles[newX, newY].GetComponent<MeshRenderer>().material =
+                _tiles[newX, newY].GetComponent<MeshRenderer>().material =
                     _actionType == ActionType.Move ? walkableTileMaterial : attackableTileMaterial;
-                Grid[newX, newY].IsWalkable = _actionType == ActionType.Move;
-                Grid[newX, newY].IsAttackable = _actionType == ActionType.Attack;
+                _grid[newX, newY].IsWalkable = _actionType == ActionType.Move;
+                _grid[newX, newY].IsAttackable = _actionType == ActionType.Attack;
             }
 
         // make selected character half transparent
@@ -357,11 +385,11 @@ public class GridManager : MonoBehaviour
 
     private IEnumerator AttackEnemy(int x, int y, CharacterType characterType)
     {
-        var enemyChars = _isEnemyTurn ? Characters : Enemies;
+        var enemyChars = _isEnemyTurn ? _characters : _enemies;
         // Debug.Log("Start attacking");
         var enemy = _isEnemyTurn
-            ? Characters[x, y].GetComponent<Character>()
-            : Enemies[x, y].GetComponent<Character>();
+            ? _characters[x, y].GetComponent<Character>()
+            : _enemies[x, y].GetComponent<Character>();
         enemy.health -= _selectedCharacter.GetComponent<Character>().damage;
         // Debug.Log("Enemy health: " + enemy.health);
 
@@ -374,7 +402,7 @@ public class GridManager : MonoBehaviour
 
             Instantiate(
                 characterType == CharacterType.Warrior ? warriorHitParticle : gunnerHitParticle,
-                new Vector3(Grid[x, y].Position.x, 0.01f, Grid[x, y].Position.z),
+                new Vector3(_grid[x, y].Position.x, 0.01f, _grid[x, y].Position.z),
                 Quaternion.identity
             );
 
@@ -382,13 +410,13 @@ public class GridManager : MonoBehaviour
             {
                 if (_isEnemyTurn)
                 {
-                    Destroy(Characters[x, y]);
-                    Characters[x, y] = null;
+                    Destroy(_characters[x, y]);
+                    _characters[x, y] = null;
                 }
                 else
                 {
-                    Destroy(Enemies[x, y]);
-                    Enemies[x, y] = null;
+                    Destroy(_enemies[x, y]);
+                    _enemies[x, y] = null;
                 }
                 // Debug.Log("Enemy destroyed");
 
@@ -406,20 +434,10 @@ public class GridManager : MonoBehaviour
 
                 if (count == 0)
                 {
-                    attackButton.SetActive(false);
-                    moveButton.SetActive(false);
-                    healthText.gameObject.SetActive(false);
-                    jobText.gameObject.SetActive(false);
-                    if (_isEnemyTurn)
-                    {
-                        _playerLose = true;
-                    }
-                    else
-                    {
-                        _enemyLose = true;
-                    }
+                    HandleWin();
                 }
             }
+
             healthText.text = "Health: " + enemy.health;
             _audioSource.PlayOneShot(hurtSound);
             // yield return new WaitForSeconds(0.35f);
@@ -429,20 +447,52 @@ public class GridManager : MonoBehaviour
         // StartCoroutine(EnemyTurn());
     }
 
+    private void HandleWin()
+    {
+        foreach (var character in _characters)
+        {
+            Destroy(character);
+        }
+
+        foreach (var enemy in _enemies)  
+        {
+            Destroy(enemy);
+        }
+        titleScreen.SetActive(false);
+        gameScreen.SetActive(false);
+        winScreen.SetActive(true);
+        _backsound.Stop();
+        _audioSource.PlayOneShot(winSound);
+        attackButton.SetActive(false);
+        moveButton.SetActive(false);
+        healthText.gameObject.SetActive(false);
+        jobText.gameObject.SetActive(false);
+        if (_isEnemyTurn)
+        {
+            _playerLose = true;
+        }
+        else
+        {
+            _enemyLose = true;
+        }
+        winText.text = _playerLose ? "Dutch WIN!" : "Indonesia WIN!";
+    }
+
     // select tile on grid
     public void SelectTile(int x, int y)
     {
-        if (Characters[x, y] != null || Enemies[x, y] != null)
+        if (_characters[x, y] != null || _enemies[x, y] != null)
         {
             SelectCharacter(x, y);
             return;
         }
+
         attackButton.SetActive(false);
         moveButton.SetActive(false);
         healthText.gameObject.SetActive(false);
         jobText.gameObject.SetActive(false);
 
-        var isWalkable = Grid[x, y].IsWalkable;
+        var isWalkable = _grid[x, y].IsWalkable;
 
         // move character transform to position of tile
         if (_selectedCharacter != null && isWalkable)
@@ -451,8 +501,8 @@ public class GridManager : MonoBehaviour
             _selectedCharacter.GetComponent<CapsuleCollider>().enabled = true;
             // move character
             // TODO: animate character move
-            var posX = Grid[x, y].Position.x;
-            var posY = Grid[x, y].Position.z;
+            var posX = _grid[x, y].Position.x;
+            var posY = _grid[x, y].Position.z;
             _selectedCharacter.transform.position = new Vector3(
                 posX,
                 _selectedCharacter.transform.position.y,
@@ -461,7 +511,7 @@ public class GridManager : MonoBehaviour
             var oldX = _selectedCharacter.GetComponent<Character>().x;
             var oldY = _selectedCharacter.GetComponent<Character>().y;
 
-            var chars = _isEnemyTurn ? Enemies : Characters;
+            var chars = _isEnemyTurn ? _enemies : _characters;
 
             chars[x, y] = chars[oldX, oldY];
             chars[oldX, oldY] = null;
@@ -470,9 +520,9 @@ public class GridManager : MonoBehaviour
             chars[x, y].GetComponent<Character>().y = y;
 
             if (_isEnemyTurn)
-                Enemies = chars;
+                _enemies = chars;
             else
-                Characters = chars;
+                _characters = chars;
 
             MakeCharacterOpaque(_selectedCharacter);
             _selectedCharacter = null;
@@ -490,13 +540,14 @@ public class GridManager : MonoBehaviour
 
     private void MakeAllCharactersOpaque()
     {
-        foreach (var character in Characters)
+        foreach (var character in _characters)
         {
             if (character == null) continue;
             character.GetComponent<CapsuleCollider>().enabled = true;
             MakeCharacterOpaque(character);
         }
-        foreach (var enemy in Enemies)
+
+        foreach (var enemy in _enemies)
         {
             if (enemy == null) continue;
             enemy.GetComponent<CapsuleCollider>().enabled = true;
@@ -517,7 +568,7 @@ public class GridManager : MonoBehaviour
         ClearTiles();
 
         // prevent anything from selectable
-        foreach (var character in Characters)
+        foreach (var character in _characters)
         {
             if (character != null)
             {
@@ -525,9 +576,9 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        var newEnemies = new GameObject[Enemies.Length];
+        var newEnemies = new GameObject[_enemies.Length];
         var count = 0;
-        foreach (var enemy in Enemies)
+        foreach (var enemy in _enemies)
         {
             if (enemy == null) continue;
             newEnemies[count] = enemy;
@@ -543,20 +594,21 @@ public class GridManager : MonoBehaviour
         if (count != 0)
         {
             var randomNumber = Random.Range(0, count);
-            GameObject enemy = newEnemies[randomNumber];
-            Character enemyCharacter = enemy.GetComponent<Character>();
+            var enemy = newEnemies[randomNumber];
+            var enemyCharacter = enemy.GetComponent<Character>();
             // wait for 0.1 second
             yield return new WaitForSeconds(0.1f);
 
             var x = enemyCharacter.x;
             var y = enemyCharacter.y;
             ClearTiles();
-            Tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
+            _tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
 
             healthText.gameObject.SetActive(true);
             jobText.gameObject.SetActive(true);
             healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
-            jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType;
+            jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType + "\nDamage: " +
+                           enemyCharacter.GetComponent<Character>().damage;
 
             // wait 1 second
             yield return new WaitForSeconds(0.2f);
@@ -610,7 +662,7 @@ public class GridManager : MonoBehaviour
         character.GetComponent<Renderer>().material = newMat;
     }
 
-    private void MakeCharacterOpaque(GameObject character)
+    private static void MakeCharacterOpaque(GameObject character)
     {
         // Create a new material
         var newMat = new Material(character.GetComponent<Renderer>().material);
@@ -636,9 +688,9 @@ public class GridManager : MonoBehaviour
         {
             for (var j = 0; j < height; j++)
             {
-                Tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableTileMaterial;
-                Grid[i, j].IsWalkable = false;
-                Grid[i, j].IsAttackable = false;
+                _tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableTileMaterial;
+                _grid[i, j].IsWalkable = false;
+                _grid[i, j].IsAttackable = false;
             }
         }
     }

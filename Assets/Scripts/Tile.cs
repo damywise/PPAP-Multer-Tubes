@@ -4,16 +4,16 @@ public class Tile : MonoBehaviour
 {
     public int x;
     public int y;
-    private GridManager _gridManager;
+    private GameController _gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        _gridManager = FindObjectOfType<GridManager>();
+        _gameController = FindObjectOfType<GameController>();
     }
 
     private void OnMouseDown()
     {
-        _gridManager.SelectTile(x, y);
+        _gameController.SelectTile(x, y);
     }
 }

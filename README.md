@@ -10,6 +10,7 @@ Untuk mulai menggunakan proyek, ikuti langkah-langkah berikut:
 - Klon repositori ke penyimpanan lokal Anda.
 - Buka proyek dalam Unity.
 - Jalankan proyek di Unity Editor.
+- Untuk build, masukkan keystore `ppapmulter` dengan password `ppapmulter`, atau silakan buat sendiri
 
 ## Persyaratan
 Proyek ini dibuat dengan Unity dan menggunakan bahasa pemrograman C#.

@@ -5,18 +5,18 @@ public class ActionButton : MonoBehaviour
 {
     public ActionType actionType;
     private Button _button;
-    private GridManager _gridManager;
+    private GameController _gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        _gridManager = FindObjectOfType<GridManager>();
+        _gameController = FindObjectOfType<GameController>();
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
     }
 
     public void OnClick()
     {
-        _gridManager.HandleChangeAction(actionType);
+        _gameController.HandleChangeAction(actionType);
     }
 }

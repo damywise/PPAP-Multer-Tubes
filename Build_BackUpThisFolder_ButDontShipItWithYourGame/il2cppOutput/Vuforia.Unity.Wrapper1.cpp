@@ -144,11 +144,8 @@ IL2CPP_EXTERN_C String_t* _stringLiteral285318587EA1FDC4E3386EB8E56E9514E7D3CC3F
 IL2CPP_EXTERN_C String_t* _stringLiteral303F91F9C5D8814F765855725456A021BD69B74F;
 IL2CPP_EXTERN_C String_t* _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709;
 IL2CPP_EXTERN_C String_t* _stringLiteralFA5CE82DDE7433A3D4A9EF1BDAD48CA6774DF011;
-IL2CPP_EXTERN_C const RuntimeMethod* Internal_Clone_m2AB04196F6137F4D1F24B673E54B6C11973CA878_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Internal_Create_m400E61F1F49AAEC5948272620724FD48810F8605_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_HasValue_m1741B43207EC063AE9A71F7F675513C528DCAF9E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_HasValue_mA69BA12DB8FA2A05D1AAF424557AFC1B0B9EBFD6_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_HasValue_mB1F55188CDD50D6D725D41F55D2F2540CD15FB20_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_HasValue_mD019096B51EAF8491D25A9FD726F699CFD58D3AB_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_Value_m290AD51500485A6D4DF42D42150AA3D91A214238_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Nullable_1_get_Value_m5A10E4D1F28A975EA94968EED4BD4B6A1610A2F9_RuntimeMethod_var;
@@ -159,51 +156,19 @@ IL2CPP_EXTERN_C const RuntimeMethod* ValueAccessUtils_GetEnumValue_TisVuValidati
 IL2CPP_EXTERN_C const RuntimeMethod* ValueAccessUtils_GetEnumValue_TisVuValidationAreaCaptureUploadStatus_t96C7F33F87E60BF8CB6FF48279F4D331293B1E12_m7C8D1238586D7B4DABB594EFB317043C5547EEC4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ValueAccessUtils_GetStructValue_TisVuValidationAreaCaptureProgressInfo_t3DCC9260358D938AA7D06D1A1A5538F5C06F9810_m324832E8995B5048B58E522DC81C35BBB6BD3823_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ValueAccessUtils_GetStructValue_TisVuValidationAreaCaptureUploadProgressInfo_t7440BB52FFF00C3F7E13AB128C5B5D2EE1D43242_mEE9FAD93893F808B9470B7927F80AA436BBEA952_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuEngine_get_NativeHandle_m627B2FB5C12F7BEDA0A6FEF45800E2536E9BC595_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuGenericTypedList_2__ctor_m1F31E3EF7C81AF86EC5A44D0B354848205B2E04E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuObservation_GetEnumValue_TisVuValidationAreaObservationStatusInfo_t0DDAC5FD792DE37FF786C4701F6BD045F628086D_m62855164F5AD0C7799C3078D5E08F3BD669DAA58_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuObservation_GetStructValue_TisVuValidationAreaObservationTargetInfo_t6984711B80994818B2F4DD43148F2CC7B626679B_mD3D6F7888DD755F95D20F11FFC2B2C88281F262F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuObservation_GetStructValue_TisVuValidationAreaObservationValidationInfo_tFFA4F6D02658485AFD2F6D2634320D67B60B3860_m2DC81B8B9AE5049DB8A9ECD867BCA21FAFA618B3_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuObserver_get_NativeHandle_m0DF9843ED5DCA1A40CD3A38E73C34795D6B68642_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuRepresentativeImageInfoList_GetElement_m93A87468DE55B2E21CC5FB86B7BDC3C09F9039B3_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuRepresentativeImageInfoList__ctor_m0D661EB2A1815A0B276ED1B0C81C58A182034ADB_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuRepresentativeImageInfoList_vuRepresentativeImageInfoListCreate_mF2B845BB945964202DCFE4BFA03AA574EB1C9C9B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuRepresentativeImageInfoList_vuRepresentativeImageInfoListDestroy_mF8E618899CE2A93F3A8100F4FA1C33281B50D0D1_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuRepresentativeImageInfoList_vuRepresentativeImageInfoListGetElement_mA32A5C2A4FF2ED1D0EA537DE357C9FDE5D2726F0_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuRepresentativeImageInfoList_vuRepresentativeImageInfoListGetSize_mE51E1B585D67E2AD5A439A90D5BCA8EBBAA5D058_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuUploadController_CreateValidationAreaCaptureUpload_mF4D400F6A9EA11D859A5F57E4E859B8C6A5500F9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuUploadController_Create_m2F85A259302234C7A70B0CDF0A2AB400D82B367A_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuUploadController__ctor_m853DE6D43CCFBBAD0298A6C49CF9E4DAA9CEA7CF_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureConfig_Clone_m8E9FBE2AA260B2C5462F2DD4FC1C3A26317D964F_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureConfig__ctor_m99A67A8DFFB52D3A80A564551867047E53B32476_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureController_CreateValidationAreaCapture_m5A77CBCE1F983B468F4E72A6E2EE14E1C5B74C7A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureController_Create_mB8D62DA04FDBCE66EDC3C37767219EE2DBA62AF4_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureController__ctor_mD54D00B9EB014C11F2A83D2BF634D373855C3D94_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUploadConfig_Clone_m56D24CBC584FFACE350E107BBFB8F9E6563509EA_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUploadConfig__ctor_m3149C1E4E1A422B198FB75B45793E001465041B6_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_Cancel_m51B1DF031FCD0899E88BD482E0F6402EC53FE2CB_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_Destroy_mDE7EA21F85A3393173A74214540C4BE738F93BAB_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_Start_mAD2CACCD6A740F6D363E2FAA6A67175E09C9DA07_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload__ctor_m06B3907188FBD6BAE32105D318A4146960A4DBCA_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_get_NativeHandle_m458E7F769ADEC803C0D4BD9BA9048F73E0AE8691_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_get_ProgressInfo_m95F64324D8E8DA24D58D2ECEEF2937856024FFFF_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_get_StatusInfo_mEA8724DE257FC9FCA8035BE55E57238033E0B6F5_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_get_Status_mF1B59EBD85B4E02CF26FB6D5FDE9E5590AA9EB75_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_vuValidationAreaCaptureUploadGetProgress_m6C7CE1A21CB1603C9012A3A2E08652D467501243_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_vuValidationAreaCaptureUploadGetStatusInfo_mE8E916B69420AE11D987904CF01B6D652834F548_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCaptureUpload_vuValidationAreaCaptureUploadGetStatus_m05507159F949BCCB6C845725F78BBB9ADA859AFA_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_Destroy_m831A1B88A1200DF3E18443A73FD13808F4113DDB_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_Pause_m3FC9A107284092140253D89BF1B85B81EDE0A78C_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_Resume_mCD2D4DC5A66711C8D42D6A76E83284B866133D88_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_Start_mDD6F2083DBB4C2D7D8917EDF54EDCD53C9F67B70_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_Stop_mC193132091336798E3D740D9777894A932F54660_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture__ctor_mD1D56844BCE57D04B181108F3A19E03412C27EBD_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_get_CaptureDirectory_mF6DE66D66D4097F00AB8FB3B84539A07B3BC7072_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_get_NativeHandle_mD2E84261566E1D941CAF04B2E8C4B8344F481957_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_get_ProgressInfo_m3F163C139CAC0C879BA564430F69FB86121553FB_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_get_SessionId_m3881135E61DAB21D40C8ADDBC3887843FBAF8FB9_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_get_StatusInfo_m288B74C8665B37A52CB50312C8EA168A649087B7_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_get_Status_mCD23923010853AC506C192E2841767A529ADF066_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_vuValidationAreaCaptureGetCaptureDirectory_mB0F2C81DF14B1C45B9A7D21F5E3A97BAB5F2E20B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_vuValidationAreaCaptureGetProgress_mE404AB1ECC1271268DC8C48F07284E59DF96AE94_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_vuValidationAreaCaptureGetSessionId_mC888D77870B0A4BC3994AAB87AEC9FEBDDAC16E8_RuntimeMethod_var;
@@ -211,11 +176,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_vuValidationAreaCap
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaCapture_vuValidationAreaCaptureGetStatus_mFFC74F8044983E1574428CEE6858EE99BB895F1A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservationTargetInfo_Create_m25A8A2E3C5490DE06473723AD74D8EB29BFA9353_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservationValidationInfo_Create_m084A04452258A613798DFF436E1EC3D5ABBA09B9_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservation_UnregisterObservation_m640E03E90ECB8D6D40ED4B6094D5D7AF4505B574_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservation__ctor_mB9FDD65D52183EC88CC6A8B038ABBE65A2AFC559_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservation_get_StatusInfo_m9255703BB2872425D5331EBDE86B7E1A66023C10_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservation_get_TargetInfo_m57986FA1D0445D7786A9F7BFCB419E7312EC77F5_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservation_get_ValidationInfo_mE2C824D9C815C6522F8026EDB5DBF56245BC68EE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VuValidationAreaObservation_vuValidationAreaObservationGetStatusInfo_m3ACE3D2B94917FB93E4ECF8D58007ABDD6EAD810_RuntimeMethod_var;
 struct Delegate_t_marshaled_com;
 struct Delegate_t_marshaled_pinvoke;
@@ -1564,15 +1524,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuRepresentativeImageInfoList__ctor_m0D6
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetListElementDelegate_t6EAFC585A3CD86158F3D46CFE2AE9E365DA283AE_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetListSizeDelegate_tA00719B677F665AC5321FAB066D301BA4D2482B7_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuGenericTypedList_2__ctor_m1F31E3EF7C81AF86EC5A44D0B354848205B2E04E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuRepresentativeImageInfoList__ctor_m0D661EB2A1815A0B276ED1B0C81C58A182034ADB_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuRepresentativeImageInfoList_vuRepresentativeImageInfoListCreate_mF2B845BB945964202DCFE4BFA03AA574EB1C9C9B_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuRepresentativeImageInfoList_vuRepresentativeImageInfoListDestroy_mF8E618899CE2A93F3A8100F4FA1C33281B50D0D1_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuRepresentativeImageInfoList_vuRepresentativeImageInfoListGetElement_mA32A5C2A4FF2ED1D0EA537DE357C9FDE5D2726F0_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuRepresentativeImageInfoList_vuRepresentativeImageInfoListGetSize_mE51E1B585D67E2AD5A439A90D5BCA8EBBAA5D058_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuRepresentativeImageInfoList__ctor_m0D661EB2A1815A0B276ED1B0C81C58A182034ADB_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		CreateListDelegate_tD0EC671C6EA984E5959A637451D50849620C1E55* L_0 = (CreateListDelegate_tD0EC671C6EA984E5959A637451D50849620C1E55*)il2cpp_codegen_object_new(CreateListDelegate_tD0EC671C6EA984E5959A637451D50849620C1E55_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
@@ -1593,14 +1550,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuRepresentativeImageInfoList__ctor_m0D6
 // Vuforia.VuRepresentativeImageInfo Vuforia.VuRepresentativeImageInfoList::GetElement(Vuforia.VuRepresentativeImageInfo/Internal)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuRepresentativeImageInfo_tCA6AC4EB357BA329BF1AA8E4EB08C5BBAFAD483E VuRepresentativeImageInfoList_GetElement_m93A87468DE55B2E21CC5FB86B7BDC3C09F9039B3 (VuRepresentativeImageInfoList_t2A65AC40837257CFF84747A7794376FDEB06E8C5* __this, Internal_t829107C961AD9CE4A2F067019607699F3C71061A ___nativeElement0, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuRepresentativeImageInfoList_GetElement_m93A87468DE55B2E21CC5FB86B7BDC3C09F9039B3_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuRepresentativeImageInfoList_GetElement_m93A87468DE55B2E21CC5FB86B7BDC3C09F9039B3_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Internal_t829107C961AD9CE4A2F067019607699F3C71061A L_0 = ___nativeElement0;
 		VuRepresentativeImageInfo_tCA6AC4EB357BA329BF1AA8E4EB08C5BBAFAD483E L_1;
@@ -1709,15 +1658,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaObservationTargetInfo_t698471
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Marshal_tD976A56A90263C3CE2B780D4B1CADADE2E70B4A7_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservationTargetInfo_Create_m25A8A2E3C5490DE06473723AD74D8EB29BFA9353_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	Internal_t4B4857F4489D8D50413AB9F0FACDBC3C503C9CB2 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	VuValidationAreaObservationTargetInfo_t6984711B80994818B2F4DD43148F2CC7B626679B V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservationTargetInfo_Create_m25A8A2E3C5490DE06473723AD74D8EB29BFA9353_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = ___observationHandle0;
 		int32_t L_1;
@@ -1854,15 +1800,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaObservationValidationInfo_tFF
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Marshal_tD976A56A90263C3CE2B780D4B1CADADE2E70B4A7_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservationValidationInfo_Create_m084A04452258A613798DFF436E1EC3D5ABBA09B9_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	Internal_tCDE06CDD81BC3132AFE22E6CEE313F5F5D7003E3 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	VuValidationAreaObservationValidationInfo_tFFA4F6D02658485AFD2F6D2634320D67B60B3860 V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservationValidationInfo_Create_m084A04452258A613798DFF436E1EC3D5ABBA09B9_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = ___observationHandle0;
 		int32_t L_1;
@@ -1948,12 +1891,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaObservation_get_Statu
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_HasValue_mA69BA12DB8FA2A05D1AAF424557AFC1B0B9EBFD6_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_Value_m290AD51500485A6D4DF42D42150AA3D91A214238_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuObservation_GetEnumValue_TisVuValidationAreaObservationStatusInfo_t0DDAC5FD792DE37FF786C4701F6BD045F628086D_m62855164F5AD0C7799C3078D5E08F3BD669DAA58_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservation_get_StatusInfo_m9255703BB2872425D5331EBDE86B7E1A66023C10_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservation_vuValidationAreaObservationGetStatusInfo_m3ACE3D2B94917FB93E4ECF8D58007ABDD6EAD810_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservation_get_StatusInfo_m9255703BB2872425D5331EBDE86B7E1A66023C10_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Nullable_1_tD1584193ACAF5BA493E37761173B76E61EF9AB03* L_0 = (&__this->___mStatusInfo_3);
 		bool L_1;
@@ -1991,11 +1931,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaObservationTargetInfo_t698471
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_Value_m5A10E4D1F28A975EA94968EED4BD4B6A1610A2F9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuObservation_GetStructValue_TisVuValidationAreaObservationTargetInfo_t6984711B80994818B2F4DD43148F2CC7B626679B_mD3D6F7888DD755F95D20F11FFC2B2C88281F262F_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservationTargetInfo_Create_m25A8A2E3C5490DE06473723AD74D8EB29BFA9353_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservation_get_TargetInfo_m57986FA1D0445D7786A9F7BFCB419E7312EC77F5_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservation_get_TargetInfo_m57986FA1D0445D7786A9F7BFCB419E7312EC77F5_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Nullable_1_t242F7ED0654258837D634F6084C2BA5F7BEC3573* L_0 = (&__this->___mTargetInfo_4);
 		bool L_1;
@@ -2033,11 +1970,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaObservationValidationInfo_tFF
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_Value_mD3B57BE271C72003BA54AA7AE82A50E27BA60C59_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuObservation_GetStructValue_TisVuValidationAreaObservationValidationInfo_tFFA4F6D02658485AFD2F6D2634320D67B60B3860_m2DC81B8B9AE5049DB8A9ECD867BCA21FAFA618B3_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservationValidationInfo_Create_m084A04452258A613798DFF436E1EC3D5ABBA09B9_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservation_get_ValidationInfo_mE2C824D9C815C6522F8026EDB5DBF56245BC68EE_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservation_get_ValidationInfo_mE2C824D9C815C6522F8026EDB5DBF56245BC68EE_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Nullable_1_t6440582F25025997DBC42E484DBBDC57DFA4EC93* L_0 = (&__this->___mValidationInfo_5);
 		bool L_1;
@@ -2067,14 +2001,6 @@ IL_0026:
 // System.Void Vuforia.VuValidationAreaObservation::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaObservation__ctor_mB9FDD65D52183EC88CC6A8B038ABBE65A2AFC559 (VuValidationAreaObservation_t62F283EEC2923949690C4660DB8BEA67D9B6E2A6* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservation__ctor_mB9FDD65D52183EC88CC6A8B038ABBE65A2AFC559_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservation__ctor_mB9FDD65D52183EC88CC6A8B038ABBE65A2AFC559_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuObservationWithPose__ctor_m17EC32281AF1EE6DCFF47420E850FD7321B29714(__this, NULL);
 		return;
@@ -2083,14 +2009,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaObservation__ctor_mB9FDD
 // System.Void Vuforia.VuValidationAreaObservation::UnregisterObservation()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaObservation_UnregisterObservation_m640E03E90ECB8D6D40ED4B6094D5D7AF4505B574 (VuValidationAreaObservation_t62F283EEC2923949690C4660DB8BEA67D9B6E2A6* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObservation_UnregisterObservation_m640E03E90ECB8D6D40ED4B6094D5D7AF4505B574_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaObservation_UnregisterObservation_m640E03E90ECB8D6D40ED4B6094D5D7AF4505B574_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Nullable_1_tD1584193ACAF5BA493E37761173B76E61EF9AB03* L_0 = (&__this->___mStatusInfo_3);
 		il2cpp_codegen_initobj(L_0, sizeof(Nullable_1_tD1584193ACAF5BA493E37761173B76E61EF9AB03));
@@ -2146,12 +2064,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VuValidationAreaCaptureConfig_
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureConfig_Clone_m8E9FBE2AA260B2C5462F2DD4FC1C3A26317D964F_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureConfig_t6C5DDF5949FEF249C35276C678785677D0BA5D92_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureConfig_Clone_m8E9FBE2AA260B2C5462F2DD4FC1C3A26317D964F_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuValidationAreaCaptureConfig_t6C5DDF5949FEF249C35276C678785677D0BA5D92* L_0 = (VuValidationAreaCaptureConfig_t6C5DDF5949FEF249C35276C678785677D0BA5D92*)il2cpp_codegen_object_new(VuValidationAreaCaptureConfig_t6C5DDF5949FEF249C35276C678785677D0BA5D92_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
@@ -2184,12 +2099,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCaptureConfig__ctor_m99A
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureConfig__ctor_m99A67A8DFFB52D3A80A564551867047E53B32476_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureConfig__ctor_m99A67A8DFFB52D3A80A564551867047E53B32476_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		__this->___captureDirectory_1 = _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___captureDirectory_1), (void*)_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
@@ -2274,14 +2186,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Internal_t500D78B6BC6314772E2F365200681470CF6
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Internal_Create_m400E61F1F49AAEC5948272620724FD48810F8605_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaObserver_t4448F64C8F1532F8D93B93742BC10A84F5777907_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	Internal_t500D78B6BC6314772E2F365200681470CF6CA9A2 V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, Internal_Create_m400E61F1F49AAEC5948272620724FD48810F8605_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	VuValidationAreaObserver_t4448F64C8F1532F8D93B93742BC10A84F5777907* G_B2_0 = NULL;
 	Internal_t500D78B6BC6314772E2F365200681470CF6CA9A2* G_B2_1 = NULL;
 	VuValidationAreaObserver_t4448F64C8F1532F8D93B93742BC10A84F5777907* G_B1_0 = NULL;
@@ -2346,14 +2255,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Internal_Clone_m2AB04196F6137F
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Internal_Clone_m2AB04196F6137F4D1F24B673E54B6C11973CA878_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Internal_t500D78B6BC6314772E2F365200681470CF6CA9A2_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	Internal_t500D78B6BC6314772E2F365200681470CF6CA9A2 V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, Internal_Clone_m2AB04196F6137F4D1F24B673E54B6C11973CA878_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		il2cpp_codegen_initobj((&V_0), sizeof(Internal_t500D78B6BC6314772E2F365200681470CF6CA9A2));
 		intptr_t L_0 = __this->___validationAreaObserver_0;
@@ -2449,14 +2355,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaCaptureController_t9B9EF84F2C
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureController_Create_mB8D62DA04FDBCE66EDC3C37767219EE2DBA62AF4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureController_t9B9EF84F2C317652E038B12BA7555D3C58783F7F_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	intptr_t V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureController_Create_mB8D62DA04FDBCE66EDC3C37767219EE2DBA62AF4_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* L_0 = ___engine0;
 		NullCheck(L_0);
@@ -2489,14 +2392,6 @@ IL_001a:
 // System.Void Vuforia.VuValidationAreaCaptureController::.ctor(Vuforia.VuEngine,System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCaptureController__ctor_mD54D00B9EB014C11F2A83D2BF634D373855C3D94 (VuValidationAreaCaptureController_t9B9EF84F2C317652E038B12BA7555D3C58783F7F* __this, VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* ___engine0, intptr_t ___nativeHandle1, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureController__ctor_mD54D00B9EB014C11F2A83D2BF634D373855C3D94_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureController__ctor_mD54D00B9EB014C11F2A83D2BF634D373855C3D94_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* L_0 = ___engine0;
 		intptr_t L_1 = ___nativeHandle1;
@@ -2510,7 +2405,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VuValidationAreaCaptureControl
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureController_CreateValidationAreaCapture_m5A77CBCE1F983B468F4E72A6E2EE14E1C5B74C7A_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_t4E68AAEFEBB94CD994FD614CEE0DAC923992EE2D_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -2518,8 +2412,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VuValidationAreaCaptureControl
 	memset((&V_0), 0, sizeof(V_0));
 	intptr_t V_1;
 	memset((&V_1), 0, sizeof(V_1));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureController_CreateValidationAreaCapture_m5A77CBCE1F983B468F4E72A6E2EE14E1C5B74C7A_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuValidationAreaCaptureConfig_t6C5DDF5949FEF249C35276C678785677D0BA5D92* L_0 = ___config0;
 		Internal_t500D78B6BC6314772E2F365200681470CF6CA9A2 L_1;
@@ -2796,14 +2688,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaCapture_vuValidationA
 // System.IntPtr Vuforia.VuValidationAreaCapture::get_NativeHandle()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t VuValidationAreaCapture_get_NativeHandle_mD2E84261566E1D941CAF04B2E8C4B8344F481957 (VuValidationAreaCapture_t4E68AAEFEBB94CD994FD614CEE0DAC923992EE2D* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_get_NativeHandle_mD2E84261566E1D941CAF04B2E8C4B8344F481957_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_get_NativeHandle_mD2E84261566E1D941CAF04B2E8C4B8344F481957_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		return L_0;
@@ -2817,12 +2701,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaCapture_get_Status_mC
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetEnumValueDelegate_1_t39B87307F2094DF786F35271D7047691BACFF01A_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ValueAccessUtils_GetEnumValue_TisVuValidationAreaCaptureStatus_t667262178198DD37E71D37E50CA68FD9A403E525_m404CBA1B07359675C2F88DDED609BEDFF2CE67BE_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_get_Status_mCD23923010853AC506C192E2841767A529ADF066_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_vuValidationAreaCaptureGetStatus_mFFC74F8044983E1574428CEE6858EE99BB895F1A_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_get_Status_mCD23923010853AC506C192E2841767A529ADF066_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetEnumValueDelegate_1_t39B87307F2094DF786F35271D7047691BACFF01A* L_1 = (GetEnumValueDelegate_1_t39B87307F2094DF786F35271D7047691BACFF01A*)il2cpp_codegen_object_new(GetEnumValueDelegate_1_t39B87307F2094DF786F35271D7047691BACFF01A_il2cpp_TypeInfo_var);
@@ -2841,12 +2722,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaCapture_get_StatusInf
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetEnumValueDelegate_1_t34FB11F3C865C5EA837EE201D26DF26612CEA0DB_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ValueAccessUtils_GetEnumValue_TisVuValidationAreaCaptureStatusInfo_t16FBB7E89329E70DB89FE0BFA1443B550EA946AF_m749B7D35243CD1AA895AFE17AD5C04D41C363EA2_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_get_StatusInfo_m288B74C8665B37A52CB50312C8EA168A649087B7_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_vuValidationAreaCaptureGetStatusInfo_m2C1E174108BEFE843BD13540F6084624375BCCC1_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_get_StatusInfo_m288B74C8665B37A52CB50312C8EA168A649087B7_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetEnumValueDelegate_1_t34FB11F3C865C5EA837EE201D26DF26612CEA0DB* L_1 = (GetEnumValueDelegate_1_t34FB11F3C865C5EA837EE201D26DF26612CEA0DB*)il2cpp_codegen_object_new(GetEnumValueDelegate_1_t34FB11F3C865C5EA837EE201D26DF26612CEA0DB_il2cpp_TypeInfo_var);
@@ -2865,12 +2743,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaCaptureProgressInfo_t3DCC9260
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetStructValueDelegate_1_t65E2D9522057F09C33C54B03517ACB7BDBCA0538_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ValueAccessUtils_GetStructValue_TisVuValidationAreaCaptureProgressInfo_t3DCC9260358D938AA7D06D1A1A5538F5C06F9810_m324832E8995B5048B58E522DC81C35BBB6BD3823_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_get_ProgressInfo_m3F163C139CAC0C879BA564430F69FB86121553FB_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_vuValidationAreaCaptureGetProgress_mE404AB1ECC1271268DC8C48F07284E59DF96AE94_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_get_ProgressInfo_m3F163C139CAC0C879BA564430F69FB86121553FB_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetStructValueDelegate_1_t65E2D9522057F09C33C54B03517ACB7BDBCA0538* L_1 = (GetStructValueDelegate_1_t65E2D9522057F09C33C54B03517ACB7BDBCA0538*)il2cpp_codegen_object_new(GetStructValueDelegate_1_t65E2D9522057F09C33C54B03517ACB7BDBCA0538_il2cpp_TypeInfo_var);
@@ -2888,12 +2763,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* VuValidationAreaCapture_get_Capture
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_get_CaptureDirectory_mF6DE66D66D4097F00AB8FB3B84539A07B3BC7072_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_vuValidationAreaCaptureGetCaptureDirectory_mB0F2C81DF14B1C45B9A7D21F5E3A97BAB5F2E20B_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_get_CaptureDirectory_mF6DE66D66D4097F00AB8FB3B84539A07B3BC7072_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459* L_1 = (GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459*)il2cpp_codegen_object_new(GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459_il2cpp_TypeInfo_var);
@@ -2911,12 +2783,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* VuValidationAreaCapture_get_Session
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_get_SessionId_m3881135E61DAB21D40C8ADDBC3887843FBAF8FB9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_vuValidationAreaCaptureGetSessionId_mC888D77870B0A4BC3994AAB87AEC9FEBDDAC16E8_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_get_SessionId_m3881135E61DAB21D40C8ADDBC3887843FBAF8FB9_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459* L_1 = (GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459*)il2cpp_codegen_object_new(GetStringValueDelegate_tB4D96A40A4403E90FC83510A7F934C7D57F82459_il2cpp_TypeInfo_var);
@@ -2930,14 +2799,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* VuValidationAreaCapture_get_Session
 // System.Void Vuforia.VuValidationAreaCapture::.ctor(System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCapture__ctor_mD1D56844BCE57D04B181108F3A19E03412C27EBD (VuValidationAreaCapture_t4E68AAEFEBB94CD994FD614CEE0DAC923992EE2D* __this, intptr_t ___nativeHandle0, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture__ctor_mD1D56844BCE57D04B181108F3A19E03412C27EBD_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture__ctor_mD1D56844BCE57D04B181108F3A19E03412C27EBD_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
 		intptr_t L_0 = ___nativeHandle0;
@@ -2948,14 +2809,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCapture__ctor_mD1D56844B
 // System.Boolean Vuforia.VuValidationAreaCapture::Start()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Start_mDD6F2083DBB4C2D7D8917EDF54EDCD53C9F67B70 (VuValidationAreaCapture_t4E68AAEFEBB94CD994FD614CEE0DAC923992EE2D* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_Start_mDD6F2083DBB4C2D7D8917EDF54EDCD53C9F67B70_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_Start_mDD6F2083DBB4C2D7D8917EDF54EDCD53C9F67B70_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		int32_t L_1;
@@ -2972,15 +2825,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Stop_mC193132091
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Marshal_tD976A56A90263C3CE2B780D4B1CADADE2E70B4A7_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_Stop_mC193132091336798E3D740D9777894A932F54660_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	intptr_t V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	int32_t V_1 = 0;
 	bool V_2 = false;
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_Stop_mC193132091336798E3D740D9777894A932F54660_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		String_t* L_0 = ___labelName0;
 		il2cpp_codegen_runtime_class_init_inline(Marshal_tD976A56A90263C3CE2B780D4B1CADADE2E70B4A7_il2cpp_TypeInfo_var);
@@ -2994,7 +2844,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Stop_mC193132091
 
 FINALLY_001d:
 			{// begin finally (depth: 1)
-				STORE_TRY_ID(methodExecutionContext, -1);
 				intptr_t L_2 = V_0;
 				il2cpp_codegen_runtime_class_init_inline(Marshal_tD976A56A90263C3CE2B780D4B1CADADE2E70B4A7_il2cpp_TypeInfo_var);
 				Marshal_FreeHGlobal_m691596E1E19CB74918F8FF871A05E4BE80748BCC(L_2, NULL);
@@ -3003,7 +2852,6 @@ FINALLY_001d:
 		});
 		try
 		{// begin try (depth: 1)
-			STORE_TRY_ID(methodExecutionContext, 0);
 			intptr_t L_3 = __this->___mNativeHandle_0;
 			intptr_t L_4 = V_0;
 			int32_t L_5;
@@ -3028,14 +2876,6 @@ IL_0024:
 // System.Boolean Vuforia.VuValidationAreaCapture::Pause()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Pause_m3FC9A107284092140253D89BF1B85B81EDE0A78C (VuValidationAreaCapture_t4E68AAEFEBB94CD994FD614CEE0DAC923992EE2D* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_Pause_m3FC9A107284092140253D89BF1B85B81EDE0A78C_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_Pause_m3FC9A107284092140253D89BF1B85B81EDE0A78C_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		int32_t L_1;
@@ -3048,14 +2888,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Pause_m3FC9A1072
 // System.Boolean Vuforia.VuValidationAreaCapture::Resume()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Resume_mCD2D4DC5A66711C8D42D6A76E83284B866133D88 (VuValidationAreaCapture_t4E68AAEFEBB94CD994FD614CEE0DAC923992EE2D* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_Resume_mCD2D4DC5A66711C8D42D6A76E83284B866133D88_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_Resume_mCD2D4DC5A66711C8D42D6A76E83284B866133D88_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		int32_t L_1;
@@ -3072,11 +2904,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCapture_Destroy_m831A1B8
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCapture_Destroy_m831A1B88A1200DF3E18443A73FD13808F4113DDB_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCapture_Destroy_m831A1B88A1200DF3E18443A73FD13808F4113DDB_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		bool L_1 = ___deleteData0;
@@ -3172,12 +3001,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VuValidationAreaCaptureUploadC
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUploadConfig_Clone_m56D24CBC584FFACE350E107BBFB8F9E6563509EA_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUploadConfig_tE5F1DB859CB4B77BB31BC01BD6E24145A64F62DC_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUploadConfig_Clone_m56D24CBC584FFACE350E107BBFB8F9E6563509EA_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuValidationAreaCaptureUploadConfig_tE5F1DB859CB4B77BB31BC01BD6E24145A64F62DC* L_0 = (VuValidationAreaCaptureUploadConfig_tE5F1DB859CB4B77BB31BC01BD6E24145A64F62DC*)il2cpp_codegen_object_new(VuValidationAreaCaptureUploadConfig_tE5F1DB859CB4B77BB31BC01BD6E24145A64F62DC_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
@@ -3210,12 +3036,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCaptureUploadConfig__cto
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUploadConfig__ctor_m3149C1E4E1A422B198FB75B45793E001465041B6_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUploadConfig__ctor_m3149C1E4E1A422B198FB75B45793E001465041B6_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		__this->___sourceDirectory_0 = _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___sourceDirectory_0), (void*)_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
@@ -3300,14 +3123,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuUploadController_t30BE21C7D4882C8782150571A
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuUploadController_Create_m2F85A259302234C7A70B0CDF0A2AB400D82B367A_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuUploadController_t30BE21C7D4882C8782150571AED4C24220955986_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	intptr_t V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuUploadController_Create_m2F85A259302234C7A70B0CDF0A2AB400D82B367A_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* L_0 = ___engine0;
 		NullCheck(L_0);
@@ -3340,14 +3160,6 @@ IL_001a:
 // System.Void Vuforia.VuUploadController::.ctor(Vuforia.VuEngine,System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuUploadController__ctor_m853DE6D43CCFBBAD0298A6C49CF9E4DAA9CEA7CF (VuUploadController_t30BE21C7D4882C8782150571AED4C24220955986* __this, VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* ___engine0, intptr_t ___nativeHandle1, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuUploadController__ctor_m853DE6D43CCFBBAD0298A6C49CF9E4DAA9CEA7CF_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuUploadController__ctor_m853DE6D43CCFBBAD0298A6C49CF9E4DAA9CEA7CF_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* L_0 = ___engine0;
 		intptr_t L_1 = ___nativeHandle1;
@@ -3361,14 +3173,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VuUploadController_CreateValid
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuUploadController_CreateValidationAreaCaptureUpload_mF4D400F6A9EA11D859A5F57E4E859B8C6A5500F9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_t466A5FA1E1D7FBA7410D2AA50D299E18205E7E0E_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	intptr_t V_0;
 	memset((&V_0), 0, sizeof(V_0));
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuUploadController_CreateValidationAreaCaptureUpload_mF4D400F6A9EA11D859A5F57E4E859B8C6A5500F9_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = ((VuController_t0E0C6E2A1AE9E9807712554C20C0A0B8B3BB5672*)__this)->___mNativeHandle_1;
 		VuValidationAreaCaptureUploadConfig_tE5F1DB859CB4B77BB31BC01BD6E24145A64F62DC* L_1 = ___config0;
@@ -3542,14 +3351,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaCaptureUpload_vuValid
 // System.IntPtr Vuforia.VuValidationAreaCaptureUpload::get_NativeHandle()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t VuValidationAreaCaptureUpload_get_NativeHandle_m458E7F769ADEC803C0D4BD9BA9048F73E0AE8691 (VuValidationAreaCaptureUpload_t466A5FA1E1D7FBA7410D2AA50D299E18205E7E0E* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_get_NativeHandle_m458E7F769ADEC803C0D4BD9BA9048F73E0AE8691_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_get_NativeHandle_m458E7F769ADEC803C0D4BD9BA9048F73E0AE8691_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		return L_0;
@@ -3563,12 +3364,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaCaptureUpload_get_Sta
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetEnumValueDelegate_1_t33CDA293A4C8EB940D3C4B12835752A3E0272527_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ValueAccessUtils_GetEnumValue_TisVuValidationAreaCaptureUploadStatus_t96C7F33F87E60BF8CB6FF48279F4D331293B1E12_m7C8D1238586D7B4DABB594EFB317043C5547EEC4_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_get_Status_mF1B59EBD85B4E02CF26FB6D5FDE9E5590AA9EB75_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_vuValidationAreaCaptureUploadGetStatus_m05507159F949BCCB6C845725F78BBB9ADA859AFA_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_get_Status_mF1B59EBD85B4E02CF26FB6D5FDE9E5590AA9EB75_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetEnumValueDelegate_1_t33CDA293A4C8EB940D3C4B12835752A3E0272527* L_1 = (GetEnumValueDelegate_1_t33CDA293A4C8EB940D3C4B12835752A3E0272527*)il2cpp_codegen_object_new(GetEnumValueDelegate_1_t33CDA293A4C8EB940D3C4B12835752A3E0272527_il2cpp_TypeInfo_var);
@@ -3587,12 +3385,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t VuValidationAreaCaptureUpload_get_Sta
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetEnumValueDelegate_1_tCB792713BEEC237564B0FF6CC74F61FF482A9796_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ValueAccessUtils_GetEnumValue_TisVuValidationAreaCaptureUploadStatusInfo_tFBAD60CAAB85172FEE2DE8F8271DEA66E3353614_m97100395931B444594B9CBD4CCBAF0BD388B3179_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_get_StatusInfo_mEA8724DE257FC9FCA8035BE55E57238033E0B6F5_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_vuValidationAreaCaptureUploadGetStatusInfo_mE8E916B69420AE11D987904CF01B6D652834F548_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_get_StatusInfo_mEA8724DE257FC9FCA8035BE55E57238033E0B6F5_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetEnumValueDelegate_1_tCB792713BEEC237564B0FF6CC74F61FF482A9796* L_1 = (GetEnumValueDelegate_1_tCB792713BEEC237564B0FF6CC74F61FF482A9796*)il2cpp_codegen_object_new(GetEnumValueDelegate_1_tCB792713BEEC237564B0FF6CC74F61FF482A9796_il2cpp_TypeInfo_var);
@@ -3611,12 +3406,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaCaptureUploadProgressInfo_t74
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GetStructValueDelegate_1_t2B9C3AF3091CB736958B4E8014627978CA87492A_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ValueAccessUtils_GetStructValue_TisVuValidationAreaCaptureUploadProgressInfo_t7440BB52FFF00C3F7E13AB128C5B5D2EE1D43242_mEE9FAD93893F808B9470B7927F80AA436BBEA952_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_get_ProgressInfo_m95F64324D8E8DA24D58D2ECEEF2937856024FFFF_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_vuValidationAreaCaptureUploadGetProgress_m6C7CE1A21CB1603C9012A3A2E08652D467501243_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_get_ProgressInfo_m95F64324D8E8DA24D58D2ECEEF2937856024FFFF_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		GetStructValueDelegate_1_t2B9C3AF3091CB736958B4E8014627978CA87492A* L_1 = (GetStructValueDelegate_1_t2B9C3AF3091CB736958B4E8014627978CA87492A*)il2cpp_codegen_object_new(GetStructValueDelegate_1_t2B9C3AF3091CB736958B4E8014627978CA87492A_il2cpp_TypeInfo_var);
@@ -3630,14 +3422,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VuValidationAreaCaptureUploadProgressInfo_t74
 // System.Void Vuforia.VuValidationAreaCaptureUpload::.ctor(System.IntPtr)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCaptureUpload__ctor_m06B3907188FBD6BAE32105D318A4146960A4DBCA (VuValidationAreaCaptureUpload_t466A5FA1E1D7FBA7410D2AA50D299E18205E7E0E* __this, intptr_t ___nativeHandle0, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload__ctor_m06B3907188FBD6BAE32105D318A4146960A4DBCA_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload__ctor_m06B3907188FBD6BAE32105D318A4146960A4DBCA_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
 		intptr_t L_0 = ___nativeHandle0;
@@ -3648,14 +3432,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VuValidationAreaCaptureUpload__ctor_m06B
 // System.Boolean Vuforia.VuValidationAreaCaptureUpload::Start()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCaptureUpload_Start_mAD2CACCD6A740F6D363E2FAA6A67175E09C9DA07 (VuValidationAreaCaptureUpload_t466A5FA1E1D7FBA7410D2AA50D299E18205E7E0E* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_Start_mAD2CACCD6A740F6D363E2FAA6A67175E09C9DA07_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_Start_mAD2CACCD6A740F6D363E2FAA6A67175E09C9DA07_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		int32_t L_1;
@@ -3668,14 +3444,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCaptureUpload_Start_mAD2
 // System.Boolean Vuforia.VuValidationAreaCaptureUpload::Cancel()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCaptureUpload_Cancel_m51B1DF031FCD0899E88BD482E0F6402EC53FE2CB (VuValidationAreaCaptureUpload_t466A5FA1E1D7FBA7410D2AA50D299E18205E7E0E* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_Cancel_m51B1DF031FCD0899E88BD482E0F6402EC53FE2CB_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_Cancel_m51B1DF031FCD0899E88BD482E0F6402EC53FE2CB_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		int32_t L_1;
@@ -3692,11 +3460,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCaptureUpload_Destroy_mD
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuValidationAreaCaptureUpload_Destroy_mDE7EA21F85A3393173A74214540C4BE738F93BAB_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuValidationAreaCaptureUpload_Destroy_mDE7EA21F85A3393173A74214540C4BE738F93BAB_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		int32_t L_1;
@@ -3744,14 +3509,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VuValidationAreaCaptureUpload_Destroy_mD
 #endif
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t VuObserver_get_NativeHandle_m0DF9843ED5DCA1A40CD3A38E73C34795D6B68642_inline (VuObserver_t90742BFE20A846DDA5C7064512EC0D4C4B0F0B80* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuObserver_get_NativeHandle_m0DF9843ED5DCA1A40CD3A38E73C34795D6B68642_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuObserver_get_NativeHandle_m0DF9843ED5DCA1A40CD3A38E73C34795D6B68642_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_1;
 		return L_0;
@@ -3759,14 +3516,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t VuObserver_get_NativeHan
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t VuEngine_get_NativeHandle_m627B2FB5C12F7BEDA0A6FEF45800E2536E9BC595_inline (VuEngine_t1F34A373F1915ADEC0EF00456B2A186075AEB8F8* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&VuEngine_get_NativeHandle_m627B2FB5C12F7BEDA0A6FEF45800E2536E9BC595_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, VuEngine_get_NativeHandle_m627B2FB5C12F7BEDA0A6FEF45800E2536E9BC595_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		intptr_t L_0 = __this->___mNativeHandle_0;
 		return L_0;
@@ -3774,14 +3523,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t VuEngine_get_NativeHandl
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_mB1F55188CDD50D6D725D41F55D2F2540CD15FB20_gshared_inline (Nullable_1_t163D49A1147F217B7BD43BE8ACC8A5CC6B846D14* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_HasValue_mB1F55188CDD50D6D725D41F55D2F2540CD15FB20_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, Nullable_1_get_HasValue_mB1F55188CDD50D6D725D41F55D2F2540CD15FB20_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		bool L_0 = (bool)__this->___hasValue_0;
 		return L_0;
@@ -3789,14 +3530,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_mB1F
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m1741B43207EC063AE9A71F7F675513C528DCAF9E_gshared_inline (Nullable_1_t242F7ED0654258837D634F6084C2BA5F7BEC3573* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_HasValue_m1741B43207EC063AE9A71F7F675513C528DCAF9E_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, Nullable_1_get_HasValue_m1741B43207EC063AE9A71F7F675513C528DCAF9E_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		bool L_0 = (bool)__this->___hasValue_0;
 		return L_0;
@@ -3804,14 +3537,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m174
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_mD019096B51EAF8491D25A9FD726F699CFD58D3AB_gshared_inline (Nullable_1_t6440582F25025997DBC42E484DBBDC57DFA4EC93* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Nullable_1_get_HasValue_mD019096B51EAF8491D25A9FD726F699CFD58D3AB_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, Nullable_1_get_HasValue_mD019096B51EAF8491D25A9FD726F699CFD58D3AB_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_PAUSE_POINT;
 	{
 		bool L_0 = (bool)__this->___hasValue_0;
 		return L_0;

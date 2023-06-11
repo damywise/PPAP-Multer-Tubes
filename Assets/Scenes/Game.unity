@@ -3822,14 +3822,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: PucukHarum_scaled
+  mTrackableName: tolakangin_scaled
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 2.7234042
+  mAspectRatio: 0.6142578
   mImageTargetType: 3
-  mWidth: 0.073437504
-  mHeight: 0.2
-  mRuntimeTexture: {fileID: 2800000, guid: c863d67c9c7c4ab586356ba77c199ccb, type: 3}
+  mWidth: 0.2
+  mHeight: 0.122851565
+  mRuntimeTexture: {fileID: 2800000, guid: 59b909048c45441cb0203d2f7ebe80df, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -3863,7 +3863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 942203810}
   mHiddenRoot: {fileID: 0}
-  mTargetName: PucukHarum_scaled
+  mTargetName: tolakangin_scaled
   mDatasetName: 
   mCastedBehaviour: {fileID: 942203810}
   mMeshFilter: {fileID: 0}

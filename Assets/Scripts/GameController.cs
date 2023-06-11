@@ -63,7 +63,6 @@ public class GameController : MonoBehaviour
     private ActionType _actionType = ActionType.Move;
     private bool _isEnemyTurn;
     private bool _playerLose;
-    private bool _enemyLose;
     private float _scale;
     private float _offsetX;
     private float _offsetY;
@@ -148,6 +147,7 @@ public class GameController : MonoBehaviour
                 _enemies[x, y].GetComponent<Character>().damage = y % 2 == 0 ? 25 : 35;
             }
         }
+        ClearTiles();
     }
 
     // Start is called before the first frame update
@@ -443,8 +443,7 @@ public class GameController : MonoBehaviour
             // yield return new WaitForSeconds(0.35f);
         }
         _isEnemyTurn = !_isEnemyTurn;
-        // // Debug.Log("Updated health text: " + healthText.text);
-        // StartCoroutine(EnemyTurn());
+        ClearTiles();
     }
 
     private void HandleWin()
@@ -454,10 +453,11 @@ public class GameController : MonoBehaviour
             Destroy(character);
         }
 
-        foreach (var enemy in _enemies)  
+        foreach (var enemy in _enemies)
         {
             Destroy(enemy);
         }
+
         titleScreen.SetActive(false);
         gameScreen.SetActive(false);
         winScreen.SetActive(true);
@@ -471,10 +471,7 @@ public class GameController : MonoBehaviour
         {
             _playerLose = true;
         }
-        else
-        {
-            _enemyLose = true;
-        }
+
         winText.text = _playerLose ? "Dutch WIN!" : "Indonesia WIN!";
     }
 
@@ -555,75 +552,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private IEnumerator EnemyTurn()
-    {
-        turnText.text = "Enemy Turn";
-
-        healthText.gameObject.SetActive(false);
-        jobText.gameObject.SetActive(false);
-        moveButton.SetActive(false);
-        attackButton.SetActive(false);
-        _isEnemyTurn = true;
-        // Debug.Log("Enemy Turn");
-        ClearTiles();
-
-        // prevent anything from selectable
-        foreach (var character in _characters)
-        {
-            if (character != null)
-            {
-                character.GetComponent<CapsuleCollider>().enabled = false;
-            }
-        }
-
-        var newEnemies = new GameObject[_enemies.Length];
-        var count = 0;
-        foreach (var enemy in _enemies)
-        {
-            if (enemy == null) continue;
-            newEnemies[count] = enemy;
-            count++;
-        }
-
-        if (count == 0)
-        {
-            _enemyLose = true;
-        }
-
-        // enemy AI
-        if (count != 0)
-        {
-            var randomNumber = Random.Range(0, count);
-            var enemy = newEnemies[randomNumber];
-            var enemyCharacter = enemy.GetComponent<Character>();
-            // wait for 0.1 second
-            yield return new WaitForSeconds(0.1f);
-
-            var x = enemyCharacter.x;
-            var y = enemyCharacter.y;
-            ClearTiles();
-            _tiles[x, y].GetComponent<MeshRenderer>().material = selectedTileMaterial;
-
-            healthText.gameObject.SetActive(true);
-            jobText.gameObject.SetActive(true);
-            healthText.text = "Health: " + enemyCharacter.GetComponent<Character>().health;
-            jobText.text = "Enemy\nJob: " + enemyCharacter.GetComponent<Character>().characterType + "\nDamage: " +
-                           enemyCharacter.GetComponent<Character>().damage;
-
-            // wait 1 second
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        // end enemy turn
-        turnText.text = "Player Turn";
-        _isEnemyTurn = false;
-        ClearTiles();
-        healthText.gameObject.SetActive(false);
-        jobText.gameObject.SetActive(false);
-        // Debug.Log("Player Turn");
-        MakeAllCharactersOpaque();
-    }
-
     public void HandleChangeAction(ActionType actionType)
     {
         this._actionType = actionType;
@@ -688,7 +616,9 @@ public class GameController : MonoBehaviour
         {
             for (var j = 0; j < height; j++)
             {
-                _tiles[i, j].GetComponent<MeshRenderer>().material = unwalkableTileMaterial;
+                var chars = _isEnemyTurn ? _enemies : _characters;
+                _tiles[i, j].GetComponent<MeshRenderer>().material =
+                    chars[i, j] != null ? hoveredTileMaterial : unwalkableTileMaterial;
                 _grid[i, j].IsWalkable = false;
                 _grid[i, j].IsAttackable = false;
             }

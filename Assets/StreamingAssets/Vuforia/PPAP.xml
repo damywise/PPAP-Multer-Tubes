@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="iwposter" size="80.000000 54.400002" />
+    <ImageTarget name="QRIW" size="50.000000 50.000000" />
     <ImageTarget name="tolakangin" size="100.000000 61.426846" />
     <ImageTarget name="PucukHarum" size="3.000000 8.157447" />
   </Tracking>

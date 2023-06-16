@@ -3822,14 +3822,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: tolakangin_scaled
+  mTrackableName: QRIW_scaled
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 0.6142578
+  mAspectRatio: 1
   mImageTargetType: 3
   mWidth: 0.2
-  mHeight: 0.122851565
-  mRuntimeTexture: {fileID: 2800000, guid: 59b909048c45441cb0203d2f7ebe80df, type: 3}
+  mHeight: 0.2
+  mRuntimeTexture: {fileID: 2800000, guid: 70ecd018eb794399b206edd39add7b22, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -3863,7 +3863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 942203810}
   mHiddenRoot: {fileID: 0}
-  mTargetName: tolakangin_scaled
+  mTargetName: QRIW_scaled
   mDatasetName: 
   mCastedBehaviour: {fileID: 942203810}
   mMeshFilter: {fileID: 0}

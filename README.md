@@ -11,6 +11,9 @@ Untuk mulai menggunakan proyek, ikuti langkah-langkah berikut:
 - Buka proyek dalam Unity.
 - Jalankan proyek di Unity Editor.
 - Untuk build, masukkan keystore `ppapmulter` dengan password `ppapmulter`, atau silakan buat sendiri
+- Marker: 
+<img width=300 src="https://github.com/damywise/PPAP-Multer-Tubes/assets/25608913/32045a5c-1e7e-4ce9-bfcc-6854446211e0" />
+
 
 ## Persyaratan
 Proyek ini dibuat dengan Unity dan menggunakan bahasa pemrograman C#.

@@ -45,6 +45,7 @@ Mekanisme permainan di Indonesian Warrior sederhana namun menantang. Pemain haru
 ### Links
 - itch.io: damywise.itch.io/indonesian-warrior
 - onedrive link: https://telkomuniversityofficial-my.sharepoint.com/:u:/g/personal/amirhf_telkomuniversity_ac_id/EetytzB1MKRHrxlH271i7UgB8Iu0C6OgB36P7aMpJkQalw?e=JBFjq6
+- trailer: https://youtu.be/5y_Gz9uKBSo
 
 ## Credits
 Proyek ini dikembangkan oleh anggota tim berikut:

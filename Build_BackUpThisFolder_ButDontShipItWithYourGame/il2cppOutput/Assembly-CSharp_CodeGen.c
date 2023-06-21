@@ -84,33 +84,39 @@ extern void TitleScreenButtons_Start_m9803CE475CAD3D79BBFA8C08C10FBABA9BDEED95 (
 extern void TitleScreenButtons_OnClick_mD19AFF9E887C364317E052A5DB1406E716678DB6 (void);
 // 0x00000024 System.Void TitleScreenButtons::.ctor()
 extern void TitleScreenButtons__ctor_m263698F084D14B8013D65357CCB84EAA878E0006 (void);
-// 0x00000025 System.String VuforiaLicense::GetLicenseKey()
+// 0x00000025 System.Void Video::Start()
+extern void Video_Start_mC3A06DC417B7FB5F57B8978CDB1CB6FEB0E0C956 (void);
+// 0x00000026 System.Void Video::OnPointerClick()
+extern void Video_OnPointerClick_m7F6F2C51F53F4F3E58B376078715CC28B3C83178 (void);
+// 0x00000027 System.Void Video::.ctor()
+extern void Video__ctor_mA3A93F8AC2EE45E2818EC2EA008008EA0705DED0 (void);
+// 0x00000028 System.String VuforiaLicense::GetLicenseKey()
 extern void VuforiaLicense_GetLicenseKey_m8E6E03709CDB6968425A93FB9D016DA6AFC6C91B (void);
-// 0x00000026 System.Void VuforiaLicense::.ctor()
+// 0x00000029 System.Void VuforiaLicense::.ctor()
 extern void VuforiaLicense__ctor_m094B92B3323DFFD79ADB696474D5D158C95E291B (void);
-// 0x00000027 System.Void TravisGameAssets.HitImpactEffectsPreview::Start()
+// 0x0000002A System.Void TravisGameAssets.HitImpactEffectsPreview::Start()
 extern void HitImpactEffectsPreview_Start_mDBAE4636E9F53312E86D068F3B71820822E2FEE7 (void);
-// 0x00000028 System.Void TravisGameAssets.HitImpactEffectsPreview::Update()
+// 0x0000002B System.Void TravisGameAssets.HitImpactEffectsPreview::Update()
 extern void HitImpactEffectsPreview_Update_m3E5851C79F2B6FED8960F5854B7576BB9C2AE18B (void);
-// 0x00000029 System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleRotation()
+// 0x0000002C System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleRotation()
 extern void HitImpactEffectsPreview_ToggleRotation_mDF257CEC93D29B988AB7C7D5351BA90D0F23D95A (void);
-// 0x0000002A System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleFloor()
+// 0x0000002D System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleFloor()
 extern void HitImpactEffectsPreview_ToggleFloor_m46CAA22630F68A0091563740B922CF33A8A58D60 (void);
-// 0x0000002B System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleSlowMotion()
+// 0x0000002E System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleSlowMotion()
 extern void HitImpactEffectsPreview_ToggleSlowMotion_mBA6019B5589C94E3D4422E381A4B32AB41832F10 (void);
-// 0x0000002C System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleLighting()
+// 0x0000002F System.Void TravisGameAssets.HitImpactEffectsPreview::ToggleLighting()
 extern void HitImpactEffectsPreview_ToggleLighting_m9460655D22228DD82181A3A916B96801438FC05B (void);
-// 0x0000002D System.Void TravisGameAssets.HitImpactEffectsPreview::NextHit()
+// 0x00000030 System.Void TravisGameAssets.HitImpactEffectsPreview::NextHit()
 extern void HitImpactEffectsPreview_NextHit_m68BC7C4EDDD7DD6352C8C16B83719A7D1B8B92AF (void);
-// 0x0000002E System.Void TravisGameAssets.HitImpactEffectsPreview::PreviousHit()
+// 0x00000031 System.Void TravisGameAssets.HitImpactEffectsPreview::PreviousHit()
 extern void HitImpactEffectsPreview_PreviousHit_m4C03EFBA92EA6B4BEED3C8CEBB3818556E30407F (void);
-// 0x0000002F System.Void TravisGameAssets.HitImpactEffectsPreview::RefreshHitUI()
+// 0x00000032 System.Void TravisGameAssets.HitImpactEffectsPreview::RefreshHitUI()
 extern void HitImpactEffectsPreview_RefreshHitUI_mF6020FE296846EE7188FA76D98C00269B7DECF23 (void);
-// 0x00000030 UnityEngine.GameObject TravisGameAssets.HitImpactEffectsPreview::SpawnHit()
+// 0x00000033 UnityEngine.GameObject TravisGameAssets.HitImpactEffectsPreview::SpawnHit()
 extern void HitImpactEffectsPreview_SpawnHit_m0B6276660CE590154CCB7C9C55FBB2DA2F4705AC (void);
-// 0x00000031 System.Void TravisGameAssets.HitImpactEffectsPreview::.ctor()
+// 0x00000034 System.Void TravisGameAssets.HitImpactEffectsPreview::.ctor()
 extern void HitImpactEffectsPreview__ctor_m55BC63E955B324AB77FCDD705DE282B6BFE0DD60 (void);
-static Il2CppMethodPointer s_methodPointers[49] = 
+static Il2CppMethodPointer s_methodPointers[52] = 
 {
 	ActionButton_Start_m25CDE40892D38B6FD480E3CBDE5A056EE88A2EA4,
 	ActionButton_OnClick_m1E0798C86966541546A9BB61CEB5C7F5213E604D,
@@ -148,6 +154,9 @@ static Il2CppMethodPointer s_methodPointers[49] =
 	TitleScreenButtons_Start_m9803CE475CAD3D79BBFA8C08C10FBABA9BDEED95,
 	TitleScreenButtons_OnClick_mD19AFF9E887C364317E052A5DB1406E716678DB6,
 	TitleScreenButtons__ctor_m263698F084D14B8013D65357CCB84EAA878E0006,
+	Video_Start_mC3A06DC417B7FB5F57B8978CDB1CB6FEB0E0C956,
+	Video_OnPointerClick_m7F6F2C51F53F4F3E58B376078715CC28B3C83178,
+	Video__ctor_mA3A93F8AC2EE45E2818EC2EA008008EA0705DED0,
 	VuforiaLicense_GetLicenseKey_m8E6E03709CDB6968425A93FB9D016DA6AFC6C91B,
 	VuforiaLicense__ctor_m094B92B3323DFFD79ADB696474D5D158C95E291B,
 	HitImpactEffectsPreview_Start_mDBAE4636E9F53312E86D068F3B71820822E2FEE7,
@@ -162,63 +171,66 @@ static Il2CppMethodPointer s_methodPointers[49] =
 	HitImpactEffectsPreview_SpawnHit_m0B6276660CE590154CCB7C9C55FBB2DA2F4705AC,
 	HitImpactEffectsPreview__ctor_m55BC63E955B324AB77FCDD705DE282B6BFE0DD60,
 };
-static const int32_t s_InvokerIndices[49] = 
+static const int32_t s_InvokerIndices[52] = 
 {
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
 	2104,
 	1077,
-	5198,
+	5199,
 	2104,
-	5198,
-	4097,
-	4118,
-	7555,
-	5198,
-	5198,
-	7720,
-	5198,
-	5198,
-	4097,
-	5198,
-	5019,
-	5092,
-	5198,
-	5092,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	7692,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5198,
-	5092,
-	5198,
+	5199,
+	4098,
+	4119,
+	7558,
+	5199,
+	5199,
+	7723,
+	5199,
+	5199,
+	4098,
+	5199,
+	5020,
+	5093,
+	5199,
+	5093,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	7695,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5199,
+	5093,
+	5199,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	49,
+	52,
 	s_methodPointers,
 	0,
 	NULL,
